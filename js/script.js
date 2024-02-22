@@ -188,7 +188,5 @@ createApp({
             // console.log('ho cliccato la chat', index);
             this.activeContact = index;
         },
-      
-  
     } 
 }).mount('#app');

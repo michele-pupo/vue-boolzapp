@@ -36,9 +36,9 @@
                         <h4 class="fs-6 ms-2">Miky</h4>
                     </div>
                     <div class="d-flex align-items-center gap-3 fs-5 me-4">
-                        <i class="fa-solid fa-circle-notch"></i>
-                        <i class="fa-solid fa-message"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <a href=""><i class="fa-solid fa-circle-notch"></i></a>
+                        <a href=""><i class="fa-solid fa-message"></i></a>
+                        <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
                     </div>
                 </div>
                 <!-- fine sezione profilo proprio -->
@@ -56,15 +56,15 @@
                     <div class="input-group">
                         <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Cerca o iniza una nuova chat">
+                          <input type="text" class="form-control" placeholder="Cerca o iniza una nuova chat">
                           <label for="floatingInputGroup1">Cerca o iniza una nuova chat</label>
                         </div>
                       </div>
                 </div>
                 <!-- fine sezione ricerca chat -->
                 <!-- inizio sezione con tutti gli utenti della chat -->
-                <div id="user-chat-list">
-                    <div id="user" v-for="(contact, index) in contacts" class="d-flex justify-content-between mt-4">
+                <div id="user-chat-list" class="mt-4">
+                    <div id="user" v-for="(contact, index) in contacts" class="d-flex justify-content-between">
                         <div @click="clickSingleChat(index)"
                              class="d-flex gap-3 align-items-center ms-4"
                         >
@@ -95,9 +95,9 @@
                             </div>
                         </div>
                         <div class="d-flex align-items-center gap-3 fs-5 me-4">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <i class="fa-solid fa-paperclip"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                            <a href=""><i class="fa-solid fa-paperclip"></i></a>
+                            <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
                         </div>
                     </div>
                 </div>
@@ -137,12 +137,12 @@
                 <!-- fine sezione con il corpo principale della chat -->
                 <!-- inizio sezione di scrittura in chat -->
                 <div id="input-chat" class="d-flex justify-content-between align-items-center">
-                    <i class="fa-regular fa-face-smile ms-5 fs-3"></i>
+                    <a href=""><i class="fa-regular fa-face-smile ms-5 fs-3 text-black"></i></a>
                     <div class="form-floating flex-grow-1 mx-5">
                         <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Scrivi un messaggio">
                         <label for="floatingInputGroup1">Scrivi un messaggio</label>
                     </div>
-                    <i class="fa-solid fa-microphone me-5 fs-3"></i>
+                    <a href=""><i class="fa-solid fa-microphone me-5 fs-3 text-black"></i></a>
                 </div>
                 <!-- fine sezione di scrittura in chat -->
             </div>

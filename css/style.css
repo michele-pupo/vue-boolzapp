@@ -59,14 +59,18 @@
 
 #notifications .fa-bell-slash{
     color: #8edafc;
-    height: 40px;
-    width: 40px;
-    padding: 20px 40px 40px 20px;
+    height: 45px;
+    width: 45px;
+    padding: 15px 45px 45px 15px;
     background-color: white;
 }
 
 #notifications h3{
     font-size: 15px;
+}
+
+#notifications h4{
+    line-height: 0px;
 }
 
 #notifications h4 a{
@@ -78,6 +82,10 @@
     height: 50px;
     width: 100%;
     background-color: #fafafa;
+}
+
+#user-chat h6{
+    line-height: 0px;
 }
 
 #user-chat-list{
