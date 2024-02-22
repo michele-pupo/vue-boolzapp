@@ -80,11 +80,43 @@
                 <!-- fine sezione con tutti gli utenti della chat -->
             </div>
             <!-- fine container con profilo proprio e chat -->
-            <div id="container-chat">
-                <div id="user-chat" class="p-5">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, eligendi quis sequi ad suscipit sit ullam enim incidunt est illum, corrupti ipsum a omnis, laudantium sapiente hic explicabo maiores blanditiis.</p>
+            <!-- inizio container principale della chat -->
+            <div id="container-chat" class="d-flex flex-column justify-content-between">
+                <!-- inizio sezione che identifica le diverse chat -->
+                <div id="user-chat">
+                    <div id="user-profile-chat" class="border border-start d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <img class="rounded-5 ms-2" src="img/avatar_1.jpg" alt="">
+                            <div id="user-text" class="flex-column">
+                                <h2 class="fs-6">Michele</h2>
+                                <h6 class="fs-6">Ultimo accesso oggi alle 12:00</h6>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 fs-5 me-4">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
                 </div>
+                <!-- fine sezione che identifica le diverse chat -->
+                <!-- inizio sezione con il corpo principale della chat -->
+                <div id="main-chat">
+
+                </div>
+                <!-- fine sezione con il corpo principale della chat -->
+                <!-- inizio sezione di scrittura in chat -->
+                <div id="input-chat" class="d-flex justify-content-between align-items-center">
+                    <i class="fa-regular fa-face-smile ms-5 fs-3"></i>
+                    <div class="form-floating flex-grow-1 mx-5">
+                        <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Scrivi un messaggio">
+                        <label for="floatingInputGroup1">Scrivi un messaggio</label>
+                    </div>
+                    <i class="fa-solid fa-microphone me-5 fs-3"></i>
+                </div>
+                <!-- fine sezione di scrittura in chat -->
             </div>
+            <!-- fine container principale della chat -->
         </div>
         <!-- fine container principale di utenti e chat -->
     </div>     

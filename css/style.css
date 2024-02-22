@@ -43,10 +43,11 @@
 }
 
 #user-profile img{
-    width: 60px;
+    width: 50px;
 }
 
-#user-profile i{
+#user-profile i, 
+#user-profile-chat i{
     color: #c7cacb;
 }
 
@@ -97,7 +98,8 @@
     background-color: #ffffff;
 }
 
-#user-text h3, #user h4{
+#user-text h3, 
+#user h4{
     color: #c7cacb;
 }
 /* fine container con i contatti */
@@ -106,8 +108,26 @@
 #container-chat{
     max-width: 100%;
     height: 100%;
+    flex-grow: 1;
     background-image: url(../img/mine.jpg);
+    overflow-y: auto;
 }
-/* fine container con la chat selezionata */
+/* container che identifica la chat */
+#user-profile-chat{
+    height: 70px;
+    width: 100%;
+    background-color: #eaeaea;
+}
 
-/* fine container principale con la chat */
+#user-profile-chat img{
+    width: 50px;
+}
+/* sezione di scrittura in chat */
+#input-chat{
+    height: 75px;
+    width: 100%; 
+    background-color: #f3eeea;
+}
+/* fine sezione di scrittura in chat */
+/* fine container che identifica la chat */
+/* fine container con la chat selezionata */
