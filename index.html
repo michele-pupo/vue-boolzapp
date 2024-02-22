@@ -52,7 +52,7 @@
                 </div>
                 <!-- fine sezione notifiche nuovi messaggi -->
                 <!-- inizio sezione ricerca chat -->
-                <div id="search-chat">
+                <div id="search-chat" class="p-2">
                     <div class="input-group">
                         <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
                         <div class="form-floating">
@@ -64,11 +64,11 @@
                 <!-- fine sezione ricerca chat -->
                 <!-- inizio sezione con tutti gli utenti della chat -->
                 <div id="user-chat-list">
-                    <div id="user" class="d-flex justify-content-between">
+                    <div id="user" v-for="contact in contacts" class="d-flex justify-content-between mt-4">
                         <div class="d-flex gap-3 align-items-center ms-4">
-                            <img class="rounded-5 mt-2" src="img/avatar_1.jpg" alt="">
+                            <img class="rounded-5 mt-2" :src="contact.avatar" :alt="`avatar-user-${contact.name}`">
                             <div id="user-text" class="flex-column">
-                                <h2 class="fs-5">Michele</h2>
+                                <h2 class="fs-5">{{ contact.name }}</h2>
                                 <h3 class="fs-6">Ultimo messaggio inviato</h3>
                             </div>
                         </div>
