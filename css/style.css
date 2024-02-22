@@ -1,0 +1,26 @@
+#app{
+    height: 100vh;
+}
+
+#container-green{
+    height: 150px;
+    width: 100%;
+    background-color: #009688;
+}
+
+#container-big-grey{
+    position: absolute;
+    height: calc(100vh - 150px);
+    width: 100%;
+    margin-bottom: 0px;
+    background-color: #dadbd4;
+}
+
+#container-big-chat{
+    height: calc(100vh - 50px);
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    top: -125px;
+    border: 5px solid red;
+}
