@@ -32,7 +32,7 @@
                 <!-- inizio sezione profilo proprio -->
                 <div id="user-profile" class="d-flex justify-content-between">
                     <div class="d-flex align-items-center">
-                        <img class="rounded-5 ms-2" src="img/avatar_1.jpg" alt="">
+                        <img class="rounded-5 ms-2" src="img/my-avatar.jpg" alt="">
                         <h4 class="fs-6 ms-2">Miky</h4>
                     </div>
                     <div class="d-flex align-items-center gap-3 fs-5 me-4">
@@ -64,8 +64,10 @@
                 <!-- fine sezione ricerca chat -->
                 <!-- inizio sezione con tutti gli utenti della chat -->
                 <div id="user-chat-list">
-                    <div id="user" v-for="contact in contacts" class="d-flex justify-content-between mt-4">
-                        <div class="d-flex gap-3 align-items-center ms-4">
+                    <div id="user" v-for="(contact, index) in contacts" class="d-flex justify-content-between mt-4">
+                        <div @click="clickSingleChat(index)"
+                             class="d-flex gap-3 align-items-center ms-4"
+                        >
                             <img class="rounded-5 mt-2" :src="contact.avatar" :alt="`avatar-user-${contact.name}`">
                             <div id="user-text" class="flex-column">
                                 <h2 class="fs-5">{{ contact.name }}</h2>
@@ -85,10 +87,10 @@
                 <!-- inizio sezione che identifica le diverse chat -->
                 <div id="user-chat">
                     <div id="user-profile-chat" class="border border-start d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <img class="rounded-5 ms-2" src="img/avatar_1.jpg" alt="">
+                        <div v-if="activeContact !== null" class="d-flex align-items-center">
+                            <img class="rounded-5 ms-2" :src="contacts[activeContact].avatar" :alt="`avatar-user-${contacts[activeContact].name}`">
                             <div id="user-text" class="flex-column">
-                                <h2 class="fs-6">Michele</h2>
+                                <h2 class="fs-6">{{ contacts[activeContact].name }}</h2>
                                 <h6 class="fs-6">Ultimo accesso oggi alle 12:00</h6>
                             </div>
                         </div>

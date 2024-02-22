@@ -17,6 +17,7 @@ createApp({
     data() {
         return {
 
+        activeContact: null,  
           contacts: [
             {
                 name: 'Michele',
@@ -182,8 +183,11 @@ createApp({
         ]
     }
     },
-
     methods: {
+        clickSingleChat (index) {
+            // console.log('ho cliccato la chat', index);
+            this.activeContact = index;
+        },
       
   
     } 
