@@ -42,10 +42,35 @@
     background-color: #eaeaea;
 }
 
+#user-profile img{
+    width: 60px;
+}
+
+#user-profile i{
+    color: #c7cacb;
+}
+
 #notifications{
     height: 80px;
     width: 100%;
     background-color: #8edafc;
+}
+
+#notifications .fa-bell-slash{
+    color: #8edafc;
+    height: 40px;
+    width: 40px;
+    padding: 20px 40px 40px 20px;
+    background-color: white;
+}
+
+#notifications h3{
+    font-size: 15px;
+}
+
+#notifications h4 a{
+    font-size: 13px;
+    color: #5d7495;
 }
 
 #search-chat{
@@ -70,7 +95,6 @@
 #user img{
     width: 60px;
     background-color: #ffffff;
-    margin-left: 20px;
 }
 
 #user-text h3, #user h4{

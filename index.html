@@ -21,174 +21,51 @@
 
     <div id="app">
         
+        <!-- container verde in alto -->
         <div id="container-green"></div>
-        <div id="container-big-grey">
-
-        </div>
+        <!-- container grigio di sfondo -->
+        <div id="container-big-grey"></div>
+        <!-- inizio container principale di utenti e chat -->
         <div id="container-big-chat" class="d-flex">
+            <!-- inizio container con profilo proprio e chat -->
             <div id="container-contacts">
-                <div id="user-profile"></div>
-                <div id="notifications"></div>
-                <div id="search-chat"></div>
+                <!-- inizio sezione profilo proprio -->
+                <div id="user-profile" class="d-flex justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-5 ms-2" src="img/avatar_1.jpg" alt="">
+                        <h4 class="fs-6 ms-2">Miky</h4>
+                    </div>
+                    <div class="d-flex align-items-center gap-3 fs-5 me-4">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                <!-- fine sezione profilo proprio -->
+                <!-- inizio sezione notifiche nuovi messaggi -->
+                <div id="notifications" class="d-flex align-items-center">
+                    <a href=""><i class="fa-solid fa-bell-slash fs-3 rounded-5 ms-4 me-4"></i></a>
+                    <div>
+                        <h3>Ricevi notifiche di nuovi messaggi</h3>
+                        <h4><a href="">Attiva notifiche desktop</a></h4>
+                    </div>
+                </div>
+                <!-- fine sezione notifiche nuovi messaggi -->
+                <!-- inizio sezione ricerca chat -->
+                <div id="search-chat">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <div class="form-floating">
+                          <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Cerca o iniza una nuova chat">
+                          <label for="floatingInputGroup1">Cerca o iniza una nuova chat</label>
+                        </div>
+                      </div>
+                </div>
+                <!-- fine sezione ricerca chat -->
+                <!-- inizio sezione con tutti gli utenti della chat -->
                 <div id="user-chat">
                     <div id="user" class="d-flex justify-content-between">
-                        <div class="d-flex gap-3 align-items-center">
-                            <img class="rounded-5 mt-2" src="img/avatar_1.jpg" alt="">
-                            <div id="user-text" class="flex-column">
-                                <h2 class="fs-5">Michele</h2>
-                                <h3 class="fs-6">Ultimo messaggio inviato</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="fs-6 me-2 mt-2">12:00</h4>
-                        </div>    
-                    </div>
-                    <div id="user" class="d-flex justify-content-between">
-                        <div class="d-flex gap-3 align-items-center">
-                            <img class="rounded-5 mt-2" src="img/avatar_1.jpg" alt="">
-                            <div id="user-text" class="flex-column">
-                                <h2 class="fs-5">Michele</h2>
-                                <h3 class="fs-6">Ultimo messaggio inviato</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="fs-6 me-2 mt-2">12:00</h4>
-                        </div>    
-                    </div>
-                    <div id="user" class="d-flex justify-content-between">
-                        <div class="d-flex gap-3 align-items-center">
-                            <img class="rounded-5 mt-2" src="img/avatar_1.jpg" alt="">
-                            <div id="user-text" class="flex-column">
-                                <h2 class="fs-5">Michele</h2>
-                                <h3 class="fs-6">Ultimo messaggio inviato</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="fs-6 me-2 mt-2">12:00</h4>
-                        </div>    
-                    </div>
-                    <div id="user" class="d-flex justify-content-between">
-                        <div class="d-flex gap-3 align-items-center">
-                            <img class="rounded-5 mt-2" src="img/avatar_1.jpg" alt="">
-                            <div id="user-text" class="flex-column">
-                                <h2 class="fs-5">Michele</h2>
-                                <h3 class="fs-6">Ultimo messaggio inviato</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="fs-6 me-2 mt-2">12:00</h4>
-                        </div>    
-                    </div>
-                    <div id="user" class="d-flex justify-content-between">
-                        <div class="d-flex gap-3 align-items-center">
-                            <img class="rounded-5 mt-2" src="img/avatar_1.jpg" alt="">
-                            <div id="user-text" class="flex-column">
-                                <h2 class="fs-5">Michele</h2>
-                                <h3 class="fs-6">Ultimo messaggio inviato</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="fs-6 me-2 mt-2">12:00</h4>
-                        </div>    
-                    </div>
-                    <div id="user" class="d-flex justify-content-between">
-                        <div class="d-flex gap-3 align-items-center">
-                            <img class="rounded-5 mt-2" src="img/avatar_1.jpg" alt="">
-                            <div id="user-text" class="flex-column">
-                                <h2 class="fs-5">Michele</h2>
-                                <h3 class="fs-6">Ultimo messaggio inviato</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="fs-6 me-2 mt-2">12:00</h4>
-                        </div>    
-                    </div>
-                    <div id="user" class="d-flex justify-content-between">
-                        <div class="d-flex gap-3 align-items-center">
-                            <img class="rounded-5 mt-2" src="img/avatar_1.jpg" alt="">
-                            <div id="user-text" class="flex-column">
-                                <h2 class="fs-5">Michele</h2>
-                                <h3 class="fs-6">Ultimo messaggio inviato</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="fs-6 me-2 mt-2">12:00</h4>
-                        </div>    
-                    </div>
-                    <div id="user" class="d-flex justify-content-between">
-                        <div class="d-flex gap-3 align-items-center">
-                            <img class="rounded-5 mt-2" src="img/avatar_1.jpg" alt="">
-                            <div id="user-text" class="flex-column">
-                                <h2 class="fs-5">Michele</h2>
-                                <h3 class="fs-6">Ultimo messaggio inviato</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="fs-6 me-2 mt-2">12:00</h4>
-                        </div>    
-                    </div>
-                    <div id="user" class="d-flex justify-content-between">
-                        <div class="d-flex gap-3 align-items-center">
-                            <img class="rounded-5 mt-2" src="img/avatar_1.jpg" alt="">
-                            <div id="user-text" class="flex-column">
-                                <h2 class="fs-5">Michele</h2>
-                                <h3 class="fs-6">Ultimo messaggio inviato</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="fs-6 me-2 mt-2">12:00</h4>
-                        </div>    
-                    </div>
-                    <div id="user" class="d-flex justify-content-between">
-                        <div class="d-flex gap-3 align-items-center">
-                            <img class="rounded-5 mt-2" src="img/avatar_1.jpg" alt="">
-                            <div id="user-text" class="flex-column">
-                                <h2 class="fs-5">Michele</h2>
-                                <h3 class="fs-6">Ultimo messaggio inviato</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="fs-6 me-2 mt-2">12:00</h4>
-                        </div>    
-                    </div>
-                    <div id="user" class="d-flex justify-content-between">
-                        <div class="d-flex gap-3 align-items-center">
-                            <img class="rounded-5 mt-2" src="img/avatar_1.jpg" alt="">
-                            <div id="user-text" class="flex-column">
-                                <h2 class="fs-5">Michele</h2>
-                                <h3 class="fs-6">Ultimo messaggio inviato</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="fs-6 me-2 mt-2">12:00</h4>
-                        </div>    
-                    </div>
-                    <div id="user" class="d-flex justify-content-between">
-                        <div class="d-flex gap-3 align-items-center">
-                            <img class="rounded-5 mt-2" src="img/avatar_1.jpg" alt="">
-                            <div id="user-text" class="flex-column">
-                                <h2 class="fs-5">Michele</h2>
-                                <h3 class="fs-6">Ultimo messaggio inviato</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="fs-6 me-2 mt-2">12:00</h4>
-                        </div>    
-                    </div>
-                    <div id="user" class="d-flex justify-content-between">
-                        <div class="d-flex gap-3 align-items-center">
-                            <img class="rounded-5 mt-2" src="img/avatar_1.jpg" alt="">
-                            <div id="user-text" class="flex-column">
-                                <h2 class="fs-5">Michele</h2>
-                                <h3 class="fs-6">Ultimo messaggio inviato</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="fs-6 me-2 mt-2">12:00</h4>
-                        </div>    
-                    </div>
-                    <div id="user" class="d-flex justify-content-between">
-                        <div class="d-flex gap-3 align-items-center">
+                        <div class="d-flex gap-3 align-items-center ms-4">
                             <img class="rounded-5 mt-2" src="img/avatar_1.jpg" alt="">
                             <div id="user-text" class="flex-column">
                                 <h2 class="fs-5">Michele</h2>
@@ -200,17 +77,16 @@
                         </div>    
                     </div>
                 </div>
+                <!-- fine sezione con tutti gli utenti della chat -->
             </div>
+            <!-- fine container con profilo proprio e chat -->
             <div id="container-chat">
-                <div id="user-chat">
-
+                <div id="user-chat" class="p-5">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, eligendi quis sequi ad suscipit sit ullam enim incidunt est illum, corrupti ipsum a omnis, laudantium sapiente hic explicabo maiores blanditiis.</p>
                 </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, eligendi quis sequi ad suscipit sit ullam enim incidunt est illum, corrupti ipsum a omnis, laudantium sapiente hic explicabo maiores blanditiis.</p>
-
             </div>
-
         </div>
-        
+        <!-- fine container principale di utenti e chat -->
     </div>     
     
 
