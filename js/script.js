@@ -212,11 +212,15 @@ createApp({
             if (event.key === 'Enter') {
                 const messageInput = event.target.value.trim();
                 if (messageInput !== '') {
-                    // orario corrente utilizzando Luxon
+
+                    // salviamo l'indice del contatto attivo al momento dell'invio
+                    const activeContactIndex = this.activeContact;
+
+                    // orario corrente utilizzando Luxon 
                     const currentTime = DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
-        
-                    // aggiungiamo il messaggio in chat insieme all'orario corrente
-                    this.contacts[this.activeContact].messages.push({
+
+                    // aggiungiamo il messaggio in chat insieme all'orario corrente 
+                    this.contacts[activeContactIndex].messages.push({
                         message: messageInput,
                         status: 'sent',
                         date: currentTime
@@ -247,24 +251,23 @@ createApp({
                     // selezioniamo casualmente una frase dalla lista
                     const randomIndex = Math.floor(Math.random() * randomResponses.length);
                     const randomResponse = randomResponses[randomIndex];
-        
+
                     // aggiungiamo la risposta casuale dopo un secondo
                     setTimeout(() => {
                         const currentTime = DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
-                        this.contacts[this.activeContact].messages.push({
+                        this.contacts[activeContactIndex].messages.push({
                             message: randomResponse,
                             status: 'received',
                             date: currentTime
                         });
 
-                        // esegui lo scroll verso il basso fino all'ultimo messaggio
+                        // esegue lo sroll verso il basso in automatico fino all'ultimo messaggio
                         this.$nextTick(() => {
                             const container = document.getElementById('main-chat');
                             container.scrollTop = container.scrollHeight;
-                });
+                        });
                     }, 1000);
-        
-                    // resettare l'input del messaggio
+
                     event.target.value = '';
                 }
             }
