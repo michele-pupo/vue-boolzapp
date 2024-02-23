@@ -236,6 +236,11 @@ createApp({
                         "Sei solo chiacchiere e distintivo!",
                         "Mamma diceva sempre: la vita è come a una scatola di cioccolatini, non sai mai quello che ti capita",
                         "Non può piovere per sempre",
+                        "Chi dorme non piglia tempo, chi ha tempo non aspetti pesce",
+                        "“Prima regola del Fight Club: non parlate mai del Fight Club. Seconda regola del Fight Club: non dovete parlare mai del Fight Club",
+                        "Al mio segnale scatenate l'Inferno",
+                        "O muori da eroe o vivi tanto a lungo da diventare il cattivo",
+                        "Un milione di dollari non è fico. Sai cos'è fico? Un miliardo di dollari",
                     ];
         
                     // selezioniamo casualmente una frase dalla lista
@@ -294,10 +299,19 @@ createApp({
                 return this.contacts;
             }
         },
+
         // funzione per eliminare il messaggio
         deleteMessage(messageIndex) {
             // rimuove il messaggio dalla lista dei messaggi
             this.contacts[this.activeContact].messages.splice(messageIndex, 1);
+        },
+
+        // funzione per eliminare l'intera chat (contatto e messaggi)
+        deleteChat() {
+            if (this.activeContact !== null) {
+                this.contacts.splice(this.activeContact, 1);
+                this.activeContact = null; // Deseleziona il contatto attivo
+            }
         }
     }
 }).mount('#app');
