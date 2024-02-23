@@ -196,7 +196,7 @@ createApp({
                     }
                 ],
             }
-        ]
+        ],
     }
     },
     methods: {
@@ -222,14 +222,40 @@ createApp({
                         date: currentTime
                     });
         
-                    // aggiungiamo automaticamente la risposta "ok" dopo un secondo
+                    // definiamo una lista di frasi casuali
+                    const randomResponses = [
+                        "Che la forza sia con te!",
+                        "Francamente, me ne infischio.",
+                        "Il mio nome è Bond, James Bond",
+                        "Potrebbe andar peggio! Potrebbe... piovere!",
+                        "Mi piace l'odore del napalm al mattino",
+                        "Io ne ho viste cose che voi umani non potreste immaginarvi",
+                        "Metti la cera, togli la cera",
+                        "Strade? Dove stiamo andando non c'è bisogno di strade!",
+                        "Se io posso cambiare, e se voi potete cambiare, allora, tutto il mondo può cambiare!",
+                        "Sei solo chiacchiere e distintivo!",
+                        "Mamma diceva sempre: la vita è come a una scatola di cioccolatini, non sai mai quello che ti capita",
+                        "Non può piovere per sempre",
+                    ];
+        
+                    // selezioniamo casualmente una frase dalla lista
+                    const randomIndex = Math.floor(Math.random() * randomResponses.length);
+                    const randomResponse = randomResponses[randomIndex];
+        
+                    // aggiungiamo la risposta casuale dopo un secondo
                     setTimeout(() => {
                         const currentTime = DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
                         this.contacts[this.activeContact].messages.push({
-                            message: 'Ok',
+                            message: randomResponse,
                             status: 'received',
                             date: currentTime
                         });
+
+                        // esegui lo scroll verso il basso fino all'ultimo messaggio
+                        this.$nextTick(() => {
+                            const container = document.getElementById('main-chat');
+                            container.scrollTop = container.scrollHeight;
+                });
                     }, 1000);
         
                     // resettare l'input del messaggio
@@ -244,14 +270,14 @@ createApp({
             const luxonDateTime = DateTime.fromFormat(dateTime, 'dd/MM/yyyy HH:mm:ss');
             return luxonDateTime.toFormat('dd LLL yyyy HH:mm'); 
         },
-
+        
         // funzione per inserire la data corretta dell'ultimo accesso che si aggiorna con il "luxonDateTime"
         formatLastMessageDateTime(dateTime) {
             if (!dateTime) return '';
             const luxonDateTime = DateTime.fromFormat(dateTime, 'dd/MM/yyyy HH:mm:ss');
             return luxonDateTime.toFormat('dd LLL yyyy HH:mm'); // Formato leggibile della data
         },
-        
+
         // funzione per inserire la data corretta dell'ultimo accesso in base alla chat slezionata che si aggiorna con il "luxonDateTime"
         getLastMessageDateTime(messages) {
             if (!messages || messages.length === 0) return '';
