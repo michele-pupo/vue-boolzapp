@@ -245,6 +245,21 @@ createApp({
             return luxonDateTime.toFormat('dd LLL yyyy HH:mm'); 
         },
 
+        // funzione per inserire la data corretta dell'ultimo accesso che si aggiorna con il "luxonDateTime"
+        formatLastMessageDateTime(dateTime) {
+            if (!dateTime) return '';
+            const luxonDateTime = DateTime.fromFormat(dateTime, 'dd/MM/yyyy HH:mm:ss');
+            return luxonDateTime.toFormat('dd LLL yyyy HH:mm'); // Formato leggibile della data
+        },
+        
+        // funzione per inserire la data corretta dell'ultimo accesso in base alla chat slezionata che si aggiorna con il "luxonDateTime"
+        getLastMessageDateTime(messages) {
+            if (!messages || messages.length === 0) return '';
+            const lastMessage = messages[messages.length - 1];
+            const luxonDateTime = DateTime.fromFormat(lastMessage.date, 'dd/MM/yyyy HH:mm:ss');
+            return luxonDateTime.toFormat('dd LLL yyyy HH:mm'); // Formato leggibile della data
+        },
+
         // funzione che ci restitutisce gli elementi filtrati nei contatti
         searchChat() {
             if(this.keyFiltered !== '') {

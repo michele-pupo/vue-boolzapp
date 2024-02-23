@@ -83,8 +83,8 @@
                                 <h3 class="fs-6">Ultimo messaggio inviato</h3>
                             </div>
                         </div>
-                        <div>
-                            <h4 class="fs-6 me-2 mt-2">12:00</h4>
+                        <div class="d-flex align-items-end me-2">
+                            <h4 class="fs-6">{{ formatLastMessageDateTime(contact.messages[contact.messages.length - 1].date) }}
                         </div>    
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                             <img class="rounded-5 ms-2" :src="contacts[activeContact].avatar" :alt="`avatar-user-${contacts[activeContact].name}`">
                             <div id="user-text" class="flex-column">
                                 <h2 class="fs-6">{{ contacts[activeContact].name }}</h2>
-                                <h6 class="fs-6">Ultimo accesso oggi alle 12:00</h6>
+                                <h6 class="fs-6">{{ getLastMessageDateTime(contacts[activeContact].messages) }}</h6>
                             </div>
                         </div>
                         <div id="icons-chat" class="d-flex align-items-center gap-3 fs-5 me-4">
@@ -120,16 +120,19 @@
                                     <div>
                                         <h2 class="p-3">{{ message.message }}</h2>
                                     </div>
-                                    <div class="dropdown">
-                                        <button class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa-solid fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <li><a class="dropdown-item" href="#" @click="deleteMessage(messageIndex)">Cancella messaggio</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="mt-5 pe-1 fs-6 text-nowrap">
-                                        <span>{{ formatMessageDate(message.date) }}</span>
+                                    <div class="d-flex flex-column align-items-end">
+                                        <div class="dropdown">
+                                            <button class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa-solid fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <li><a class="dropdown-item" href="#" @click="deleteMessage(messageIndex)">Cancella messaggio</a></li>
+                                                <li><a class="dropdown-item" href="">Informazioni messaggio</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="pe-1 fs-6 text-nowrap">
+                                            <span>{{ formatMessageDate(message.date) }}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
