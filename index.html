@@ -19,8 +19,8 @@
 </head>
 <body>
 
-     <!--script VueJs-->
-     <script src="https://unpkg.com/vue@3"></script> 
+    <!--script VueJs-->
+    <script src="https://unpkg.com/vue@3"></script> 
 
     <div id="app">
         
@@ -59,15 +59,15 @@
                     <div class="input-group">
                         <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
                         <div class="form-floating">
-                          <input type="search" class="form-control" placeholder="Cerca o iniza una nuova chat">
-                          <label for="floatingInputGroup1">Cerca o iniza una nuova chat</label>
+                            <input v-model="keyFiltered" type="search" class="form-control" placeholder="Cerca o inizia una nuova chat">
+                            <label for="floatingInputGroup1">Cerca o inizia una nuova chat</label>
                         </div>
-                      </div>
+                    </div>
                 </div>
                 <!-- fine sezione ricerca chat -->
                 <!-- inizio sezione con tutti gli utenti della chat -->
                 <div id="user-chat-list" class="mt-4">
-                    <div id="user" v-for="(contact, index) in contacts" class="d-flex justify-content-between">
+                    <div id="user" v-for="(contact, index) in searchChat()" class="d-flex justify-content-between">
                         <div @click="clickSingleChat(index)"
                              class="d-flex gap-3 align-items-center ms-4"
                         >

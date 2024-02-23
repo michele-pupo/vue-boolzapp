@@ -13,7 +13,11 @@
    Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e 
    digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
    Risposta dall’interlocutore: ad ogni inserimento di un messaggio, 
-   l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.  
+   l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+ - Milestone 4
+   Ricerca utenti: scrivendo qualcosa nell’input a sinistra, 
+   vengono visualizzati solo i contatti il cui nome contiene le lettere inserite 
+   (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)  
 */
 
 const { createApp } = Vue
@@ -22,7 +26,9 @@ createApp({
     data() {
         return {
 
-        activeContact: null,  
+        keyFiltered : '',
+        activeContact: null,
+
           contacts: [
             {
                 name: 'Michele',
@@ -227,5 +233,13 @@ createApp({
                 }
             }
         },
+        //funzione ci restitutisce gli elementi filtrati nei contatti
+        searchChat() {
+            if(this.keyFiltered !== '') {
+                return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.keyFiltered.toLowerCase()));
+            } else {
+                return this.contacts;
+            }
+        }
     }
 }).mount('#app');
