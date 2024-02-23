@@ -104,6 +104,10 @@
     user-select: none;
 }
 
+#user.active{
+    background-color: #e9ebeb;
+}
+
 #user img{
     width: 60px;
     background-color: #ffffff;
@@ -152,6 +156,11 @@
 
 #icons-chat{
     margin-left: 20px;
+}
+
+.dropdown .btn{
+    border: transparent;
+    color: #c7cacb;
 }
 /* fine stilizzazione messaggio utente e risposta */
 

@@ -17,7 +17,11 @@
  - Milestone 4
    Ricerca utenti: scrivendo qualcosa nell’input a sinistra, 
    vengono visualizzati solo i contatti il cui nome contiene le lettere inserite 
-   (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)  
+   (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+ - Milestone 5 - (bonus)
+   Cancella messaggio: cliccando sul messaggio appare un menu a tendina 
+   che permette di cancellare il messaggio selezionato
+  
 */
 
 const { createApp } = Vue
@@ -233,13 +237,18 @@ createApp({
                 }
             }
         },
-        //funzione ci restitutisce gli elementi filtrati nei contatti
+        //funzione ci restitutisce gli elementi filtrati nei
         searchChat() {
             if(this.keyFiltered !== '') {
                 return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.keyFiltered.toLowerCase()));
             } else {
                 return this.contacts;
             }
+        },
+        // funzione per eliminare il messaggio
+        deleteMessage(messageIndex) {
+            // Rimuove il messaggio dalla lista dei messaggi
+            this.contacts[this.activeContact].messages.splice(messageIndex, 1);
         }
     }
 }).mount('#app');
