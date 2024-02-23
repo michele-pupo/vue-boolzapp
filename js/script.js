@@ -241,6 +241,7 @@ createApp({
                         "Al mio segnale scatenate l'Inferno",
                         "O muori da eroe o vivi tanto a lungo da diventare il cattivo",
                         "Un milione di dollari non è fico. Sai cos'è fico? Un miliardo di dollari",
+                        "Non è colpa tua… sono io",
                     ];
         
                     // selezioniamo casualmente una frase dalla lista
