@@ -21,10 +21,11 @@
  - Milestone 5 - (bonus)
    Cancella messaggio: cliccando sul messaggio appare un menu a tendina 
    che permette di cancellare il messaggio selezionato
-  
 */
 
-const { createApp } = Vue
+const { createApp } = Vue;
+
+const { DateTime } = luxon;
 
 createApp({
     data() {
@@ -199,45 +200,52 @@ createApp({
     }
     },
     methods: {
+
         // funzione per gestire il contatto cliccato
         clickSingleChat (index) {
             // console.log('ho cliccato la chat', index);
             this.activeContact = index;
         },
-        // funzione per formattare la data
-        formatMessageDate(dateTime) {
-            // gestione caso in cui la data sia vuota o non definita
-            if (!dateTime) return ''; 
-            const date = new Date(dateTime);
-            // gestione caso in cui la data non sia valida
-            if (isNaN(date.getTime())) return ''; 
-            const options = { hour: 'numeric', minute: 'numeric' };
-            return new Intl.DateTimeFormat('it-IT', options).format(date);
-        },
+        
         // funzione per inserire un nuovo messaggio
         sendMessage(event) {
             if (event.key === 'Enter') {
                 const messageInput = event.target.value.trim();
                 if (messageInput !== '') {
-                    // Aggiungi il messaggio al thread della chat
+                    // orario corrente utilizzando Luxon
+                    const currentTime = DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
+        
+                    // aggiungiamo il messaggio in chat insieme all'orario corrente
                     this.contacts[this.activeContact].messages.push({
                         message: messageInput,
-                        status: 'sent'
+                        status: 'sent',
+                        date: currentTime
                     });
-                    // aggiungiamo automaticamente la risposta "ok", con il setTimeout gestiamo il ritardo nella risposta
+        
+                    // aggiungiamo automaticamente la risposta "ok" dopo un secondo
                     setTimeout(() => {
-                    this.contacts[this.activeContact].messages.push({
-                        message: 'Ok',
-                        status: 'received'
-                    });
-                    // aggiungiamo un ritardo di 1000 ms (1 secondo) per la risposta al messaggio
+                        const currentTime = DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
+                        this.contacts[this.activeContact].messages.push({
+                            message: 'Ok',
+                            status: 'received',
+                            date: currentTime
+                        });
                     }, 1000);
+        
                     // resettare l'input del messaggio
                     event.target.value = '';
                 }
             }
         },
-        //funzione ci restitutisce gli elementi filtrati nei
+
+        // funzione per formattare data e ora usando Luxon
+        formatMessageDate(dateTime) {
+            if (!dateTime) return '';
+            const luxonDateTime = DateTime.fromFormat(dateTime, 'dd/MM/yyyy HH:mm:ss');
+            return luxonDateTime.toFormat('dd LLL yyyy HH:mm'); 
+        },
+
+        // funzione che ci restitutisce gli elementi filtrati nei contatti
         searchChat() {
             if(this.keyFiltered !== '') {
                 return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.keyFiltered.toLowerCase()));
@@ -247,7 +255,7 @@ createApp({
         },
         // funzione per eliminare il messaggio
         deleteMessage(messageIndex) {
-            // Rimuove il messaggio dalla lista dei messaggi
+            // rimuove il messaggio dalla lista dei messaggi
             this.contacts[this.activeContact].messages.splice(messageIndex, 1);
         }
     }
