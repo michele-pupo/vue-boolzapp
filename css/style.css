@@ -34,6 +34,7 @@
     width: 560px;
     height: 100%;
     background-color: #ffffff;
+    border-right: 2px solid #f9f9f9;
 }
 
 #user-profile{
@@ -119,15 +120,14 @@
     height: 100%;
     flex-grow: 1;
     background-image: url(../img/mine.jpg);
-    overflow-y: auto;
 }
 
 /* stilizzazione messaggio utente e risposta */
 #main-chat{
-    height: 100vh;
+    height: calc(100vh - 70px - 75px);
     width: 100%;
-    flex-grow: 1;
     padding: 60px 100px 60px 100px;
+    overflow-y: auto;
 }
 
 #main-chat h2{
@@ -141,17 +141,19 @@
 
 #user-message{
     width: 400px;
-    height: 70px;
     background-color: #d5f9ba;
 }
 
 #reply-message{
     width: 400px;
-    height: 70px;
     background-color: #ffffff;
 }
 
+#icons-chat{
+    margin-left: 20px;
+}
 /* fine stilizzazione messaggio utente e risposta */
+
 /* container che identifica la chat */
 #user-profile-chat{
     height: 70px;

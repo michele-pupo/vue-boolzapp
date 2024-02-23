@@ -56,7 +56,7 @@
                     <div class="input-group">
                         <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
                         <div class="form-floating">
-                          <input type="text" class="form-control" placeholder="Cerca o iniza una nuova chat">
+                          <input type="search" class="form-control" placeholder="Cerca o iniza una nuova chat">
                           <label for="floatingInputGroup1">Cerca o iniza una nuova chat</label>
                         </div>
                       </div>
@@ -94,7 +94,7 @@
                                 <h6 class="fs-6">Ultimo accesso oggi alle 12:00</h6>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center gap-3 fs-5 me-4">
+                        <div id="icons-chat" class="d-flex align-items-center gap-3 fs-5 me-4">
                             <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
                             <a href=""><i class="fa-solid fa-paperclip"></i></a>
                             <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
@@ -109,9 +109,9 @@
                             <div v-if="message.status === 'sent'" class="d-flex flex-column align-items-end">
                                 <div id="user-message" class="d-flex align-items-center justify-content-between ps-3 rounded-3 mb-3">
                                     <div>
-                                        <h2>{{ message.message }}</h2>
+                                        <h2 class="p-3">{{ message.message }}</h2>
                                     </div>
-                                    <div class="mt-5 p-2">
+                                    <div class="mt-5 pe-2">
                                         <span>{{ formatMessageDate(message.date) }}</span>
                                     </div>
                                 </div>
@@ -119,9 +119,9 @@
                             <div v-else-if="message.status === 'received'" class="d-flex flex-column align-items-start">
                                 <div id="reply-message" class="d-flex align-items-center justify-content-between ps-3 rounded-3 mb-3">
                                     <div>
-                                        <h2>{{ message.message }}</h2>
+                                        <h2 class="p-3">{{ message.message }}</h2>
                                     </div>
-                                    <div class="mt-5 p-2">
+                                    <div class="mt-5 pe-2">
                                         <span>{{ formatMessageDate(message.date) }}</span>
                                     </div>
                                 </div>
@@ -137,8 +137,13 @@
                 <div id="input-chat" class="d-flex justify-content-between align-items-center">
                     <a href=""><i class="fa-regular fa-face-smile ms-5 fs-3 text-black"></i></a>
                     <div class="form-floating flex-grow-1 mx-5">
-                        <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Scrivi un messaggio">
-                        <label for="floatingInputGroup1">Scrivi un messaggio</label>
+                        <input type="text" 
+                               class="form-control" 
+                               id="messageInput" 
+                               placeholder="Scrivi un messaggio" 
+                               @keypress.enter="sendMessage"
+                        >
+                        <label for="messageInput">Scrivi un messaggio</label>
                     </div>
                     <a href=""><i class="fa-solid fa-microphone me-5 fs-3 text-black"></i></a>
                 </div>

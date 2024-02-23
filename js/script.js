@@ -204,5 +204,20 @@ createApp({
             const options = { hour: 'numeric', minute: 'numeric' };
             return new Intl.DateTimeFormat('it-IT', options).format(date);
         },
+        // funzione per inserire un nuovo messaggio
+        sendMessage(event) {
+            if (event.key === 'Enter') {
+                const messageInput = event.target.value.trim();
+                if (messageInput !== '') {
+                    // Aggiungi il messaggio al thread della chat
+                    this.contacts[this.activeContact].messages.push({
+                        message: messageInput,
+                        status: 'sent'
+                    });
+                    // resettare l'input del messaggio
+                    event.target.value = '';
+                }
+            }
+        },
     }
 }).mount('#app');
