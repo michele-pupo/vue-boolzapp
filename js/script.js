@@ -316,6 +316,6 @@ createApp({
                 this.contacts.splice(this.activeContact, 1);
                 this.activeContact = null; // Deseleziona il contatto attivo
             }
-        }
+        },
     }
 }).mount('#app');

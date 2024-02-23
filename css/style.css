@@ -121,10 +121,21 @@
 
 /* container con la chat selezionata */
 #container-chat{
+    /* position: absolute; */
     max-width: 100%;
     height: 100%;
     flex-grow: 1;
     background-image: url(../img/mine.jpg);
+}
+
+#container-chat #no-contact{
+    position: absolute;
+    top: 50%;
+}
+
+#container-chat #encrypted{
+    position: absolute;
+    bottom: 80px;
 }
 
 /* stilizzazione messaggio utente e risposta */
