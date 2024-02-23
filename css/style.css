@@ -170,6 +170,10 @@
     width: 100%; 
     background-color: #f3eeea;
 }
+
+#input-chat a{
+    color: #6b7376;
+}
 /* fine sezione di scrittura in chat */
 /* fine container che identifica la chat */
 /* fine container con la chat selezionata */

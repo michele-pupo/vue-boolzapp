@@ -4,16 +4,16 @@
    e dall’interlocutore (bianco) assegnando due classi CSS diverse
    Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, 
    visualizzare nome e immagine di ogni contatto
-- Milestone 2
-  Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, 
-  visualizzare tutti i messaggi relativi al contatto attivo all’interno 
-  del pannello della conversazione
-  Click sul contatto mostra la conversazione del contatto cliccato
-- Milestone 3
-  Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e 
-  digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
-  Risposta dall’interlocutore: ad ogni inserimento di un messaggio, 
-  l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.  
+ - Milestone 2
+   Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, 
+   visualizzare tutti i messaggi relativi al contatto attivo all’interno 
+   del pannello della conversazione
+   Click sul contatto mostra la conversazione del contatto cliccato
+ - Milestone 3
+   Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e 
+   digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+   Risposta dall’interlocutore: ad ogni inserimento di un messaggio, 
+   l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.  
 */
 
 const { createApp } = Vue
@@ -214,6 +214,14 @@ createApp({
                         message: messageInput,
                         status: 'sent'
                     });
+                    // aggiungiamo automaticamente la risposta "ok", con il setTimeout gestiamo il ritardo nella risposta
+                    setTimeout(() => {
+                    this.contacts[this.activeContact].messages.push({
+                        message: 'Ok',
+                        status: 'received'
+                    });
+                    // aggiungiamo un ritardo di 1000 ms (1 secondo) per la risposta al messaggio
+                    }, 1000);
                     // resettare l'input del messaggio
                     event.target.value = '';
                 }
