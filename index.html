@@ -101,37 +101,35 @@
                         </div>
                     </div>
                 </div>
-                <!-- fine sezione che identifica le diverse chat --><!-- inizio sezione con il corpo principale della chat -->
+                <!-- fine sezione che identifica le diverse chat -->
+                <!-- inizio sezione con il corpo principale della chat -->
                 <div id="main-chat">
-                    <div class="d-flex flex-column align-items-end">
-                        <div id="user-message" class="d-flex align-items-center justify-content-between ps-3 rounded-3 mb-3">
-                            <div>
-                                <h2>Hai portato a spasso il cane?</h2>
+                    <div v-if="activeContact !== null">
+                        <div v-for="(message, messageIndex) in contacts[activeContact].messages" :key="messageIndex">
+                            <div v-if="message.status === 'sent'" class="d-flex flex-column align-items-end">
+                                <div id="user-message" class="d-flex align-items-center justify-content-between ps-3 rounded-3 mb-3">
+                                    <div>
+                                        <h2>{{ message.message }}</h2>
+                                    </div>
+                                    <div class="mt-5 p-2">
+                                        <span>{{ message.date }}</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mt-5 p-2">
-                                <span>15:30</span>
+                            <div v-else-if="message.status === 'received'" class="d-flex flex-column align-items-start">
+                                <div id="reply-message" class="d-flex align-items-center justify-content-between ps-3 rounded-3 mb-3">
+                                    <div>
+                                        <h2>{{ message.message }}</h2>
+                                    </div>
+                                    <div class="mt-5 p-2">
+                                        <span>{{ message.date }}</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex flex-column align-items-end">
-                        <div id="user-message" class="d-flex align-items-center justify-content-between ps-3 rounded-3 mb-3">
-                            <div>
-                                <h2>Ricordati di stendere i panni</h2>
-                            </div>
-                            <div class="mt-5 p-2">
-                                <span>15:50</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-column align-items-start">
-                        <div id="reply-message" class="d-flex align-items-center justify-content-between ps-3 rounded-3 mb-3">
-                            <div>
-                                <h2>Tutto fatto!</h2>
-                            </div>
-                            <div class="mt-5 p-2">
-                                <span>16:15</span>
-                            </div>
-                        </div>
+                    <div v-else>
+                        <p>Nessun contatto attivo</p>
                     </div>
                 </div>
                 <!-- fine sezione con il corpo principale della chat -->
