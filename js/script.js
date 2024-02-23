@@ -184,9 +184,20 @@ createApp({
     }
     },
     methods: {
+        // funzione per gestire il contatto cliccato
         clickSingleChat (index) {
             // console.log('ho cliccato la chat', index);
             this.activeContact = index;
         },
-    } 
+        // funzione per formattare la data
+        formatMessageDate(dateTime) {
+            // gestione caso in cui la data sia vuota o non definita
+            if (!dateTime) return ''; 
+            const date = new Date(dateTime);
+            // gestione caso in cui la data non sia valida
+            if (isNaN(date.getTime())) return ''; 
+            const options = { hour: 'numeric', minute: 'numeric' };
+            return new Intl.DateTimeFormat('it-IT', options).format(date);
+        },
+    }
 }).mount('#app');
