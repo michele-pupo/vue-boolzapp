@@ -214,6 +214,9 @@ createApp({
                 const messageInput = event.target.value.trim();
                 if (messageInput !== '') {
 
+                    // reimposta il valore del campo di input a una stringa vuota dopo l'invio del messaggio
+                    event.target.value = '';
+
                     // salviamo l'indice del contatto attivo al momento dell'invio
                     const activeContactIndex = this.activeContact;
 
@@ -253,7 +256,13 @@ createApp({
                     const randomIndex = Math.floor(Math.random() * randomResponses.length);
                     const randomResponse = randomResponses[randomIndex];
 
-                    // aggiungiamo la risposta casuale dopo un secondo
+                    // calcola la lunghezza del messaggio di risposta
+                    const responseLength = randomResponse.length;
+
+                    // calcola un ritardo basato sulla lunghezza del messaggio
+                    const timeout = responseLength * 50; // Ad esempio, 50 millisecondi per carattere
+
+                    // aggiungiamo la risposta casuale dopo il ritardo calcolato
                     setTimeout(() => {
                         const currentTime = DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
                         this.contacts[activeContactIndex].messages.push({
@@ -267,9 +276,7 @@ createApp({
                             const container = document.getElementById('main-chat');
                             container.scrollTop = container.scrollHeight;
                         });
-                    }, 1000);
-
-                    event.target.value = '';
+                    }, timeout);
                 }
             }
         },
