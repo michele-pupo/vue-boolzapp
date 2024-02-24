@@ -202,9 +202,10 @@ createApp({
     methods: {
 
         // funzione per gestire il contatto cliccato
-        clickSingleChat (index) {
-            // console.log('ho cliccato la chat', index);
-            this.activeContact = index;
+        clickSingleChat(index) {
+            const filteredContacts = this.searchChat();
+            const originalIndex = this.contacts.indexOf(filteredContacts[index]);
+            this.activeContact = originalIndex;
         },
         
         // funzione per inserire un nuovo messaggio
@@ -277,7 +278,14 @@ createApp({
         formatMessageDate(dateTime) {
             if (!dateTime) return '';
             const luxonDateTime = DateTime.fromFormat(dateTime, 'dd/MM/yyyy HH:mm:ss');
-            return luxonDateTime.toFormat('dd LLL yyyy HH:mm'); 
+            const now = DateTime.now();
+            const diffInHours = now.diff(luxonDateTime, 'hours').hours;
+            // se l'ultimo messaggio inviato o ricevuto è nelle ultime 24 ore, mostra solo ora e minuto
+            if (diffInHours < 24) {
+                return luxonDateTime.toFormat('HH:mm');
+            } else {
+                return luxonDateTime.toFormat('dd LLL yyyy HH:mm');
+            }
         },
         
         // funzione per inserire la data corretta dell'ultimo accesso che si aggiorna con il "luxonDateTime"
