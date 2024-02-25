@@ -166,14 +166,27 @@
                 </div>
                 <!-- fine sezione con il corpo principale della chat -->
                 <!-- inizio sezione di scrittura in chat -->
-                <div id="input-chat" v-if="activeContact !== null" class="d-flex justify-content-between align-items-center">
-                    <a href=""><i class="fa-regular fa-face-smile ms-5 fs-3 text-black"></i></a>
+                <div id="input-chat" v-if="activeContact !== null" class="d-flex justify-content-between align-items-center position-relative">
+                    <!-- inizio emoticon menu -->
+                    <div class="dropdown">
+                        <button class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-face-smile display-6"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton">
+                            <div class="text-warning">
+                                <i class="fa-regular fa-face-kiss-wink-heart"></i>
+                                <i class="fa-regular fa-face-grin-tears"></i>
+                                <i class="fa-regular fa-face-grin-tongue-wink"></i>
+                            </div>
+                         </ul>
+                    </div>
+                    <!-- fine emoticon menu -->
                     <div class="form-floating flex-grow-1 mx-5">
                         <input type="text" 
-                               class="form-control" 
-                               id="messageInput" 
-                               placeholder="Scrivi un messaggio" 
-                               @keypress.enter="sendMessage"
+                            class="form-control" 
+                            id="messageInput" 
+                            placeholder="Scrivi un messaggio" 
+                            @keypress.enter="sendMessage"
                         >
                         <label for="messageInput">Scrivi un messaggio</label>
                     </div>

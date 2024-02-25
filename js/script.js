@@ -332,5 +332,5 @@ createApp({
                 this.activeContact = null; // Deseleziona il contatto attivo
             }
         },
-    }
+    },
 }).mount('#app');

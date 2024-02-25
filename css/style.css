@@ -304,6 +304,10 @@
     #notifications h4 a{
         font-size: 10px;
     }
+
+    #input-chat label{
+        font-size: 8px;
+    }
 }
 
 /* versione tablet */
@@ -313,7 +317,7 @@
     }
 
     #container-contacts{
-        width: 300px;
+        width: 230px;
     }
 
     #main-chat{
@@ -322,6 +326,12 @@
 
     #main-chat #no-contact{
         font-size: 15px;
+    }
+
+    #user h4{
+        font-size: 7px;
+        text-wrap: nowrap;
+        m
     }
 
     #user-message h2
@@ -346,6 +356,10 @@
     #notifications h4 a{
         font-size: 8px;
     }
+
+    #input-chat label{
+        display: none;
+    }
 }
 
 /* versione mobile */
@@ -355,12 +369,36 @@
     }
 
     #container-contacts{
-        width: 200px;
+        width: 120px;
+    }
+
+    #encrypted{
+        font-size: 80px;
+    }
+
+    #user-profile a{
+        display: none;
+    }
+
+    #user-profile h4{
+        display: block;
+    }
+
+    #notifications h3, h4{
+        display: none;
     }
 
     #user-text h2,
     #user-text h3, 
     #user h4{
+        display: none;
+    }
+
+    #search-chat label{
+        display: none;
+    }
+
+    #input-chat label{
         display: none;
     }
 }
