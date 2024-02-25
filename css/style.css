@@ -185,6 +185,7 @@
 #reply-message{
     position: relative;
     flex-grow: 1;
+    min-width: 120px;
     background-color: #ffffff;
 }
 
@@ -199,6 +200,12 @@
 
 .dropdown .btn:hover{
     color: black
+}
+
+.dropdown-menu-start {
+    min-width: 350px;
+    max-height: 200px;
+    overflow-y: auto;
 }
 /* fine stilizzazione messaggio utente e risposta */
 
@@ -221,6 +228,19 @@
 
 #input-chat a{
     color: #6b7376;
+}
+
+.theme-light {
+    background-color: #ffffff;
+    color: #000000;
+    background-image: url(../img/mine.jpg);
+}
+
+.theme-dark {
+    background-color: #333333;
+    color: #ffffff;
+    height: 100vh;
+    background-image: url(../img/Senza\ titolo.jpg);
 }
 /* fine sezione di scrittura in chat */
 /* fine container che identifica la chat */

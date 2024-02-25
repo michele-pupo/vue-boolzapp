@@ -26,13 +26,14 @@
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
 
     <div id="app">
+        <button @click="changeTheme">Cambia tema</button>
         
         <!-- container verde in alto -->
         <div id="container-green"></div>
         <!-- container grigio di sfondo -->
         <div id="container-big-grey"></div>
         <!-- inizio container principale di utenti e chat -->
-        <div id="container-big-chat" class="d-flex">
+        <div id="container-big-chat" class="d-flex" :class="theme">
             <!-- inizio container con profilo proprio e chat -->
             <div id="container-contacts">
                 <!-- inizio sezione profilo proprio -->
@@ -121,7 +122,7 @@
                 </div>
                 <!-- fine sezione che identifica le diverse chat -->
                 <!-- inizio sezione con il corpo principale della chat -->
-                <div id="main-chat">
+                <div id="main-chat" :class="theme">
                     <div v-if="activeContact !== null">
                         <div v-for="(message, messageIndex) in contacts[activeContact].messages" :key="messageIndex">
                             <div v-if="message.status === 'sent'" class="d-flex flex-column align-items-end">
@@ -173,25 +174,25 @@
                             <i class="fa-regular fa-face-smile display-6"></i>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton">
-                            <div class="fs-2 p-2">
-                                <span>&#128512;</span>
-                                <span>&#128513;</span>
-                                <span>&#128514;</span>
-                                <span>&#128517;</span>
-                                <span>&#128519;</span>
-                                <span>&#128521;</span>
-                                <span>&#128525;</span>
-                                <span>&#128526;</span>
-                                <span>&#128527;</span>
-                                <span>&#128531;</span>
-                                <span>&#128531;</span>
-                                <span>&#128536;</span>
-                                <span>&#128540;</span>
-                                <span>&#128545;</span>
-                                <span>&#128546;</span>
-                                <span>&#128548;</span>
-                                <span>&#128554;</span>
-                                <span>&#128557;</span>
+                            <div class="fs-3">
+                                <button class="border-0 bg-white"><span>&#128512;</span></button>
+                                <button class="border-0 bg-white"><span>&#128513;</span></button>
+                                <button class="border-0 bg-white"><span>&#128514;</span></button>
+                                <button class="border-0 bg-white"><span>&#128517;</span></button>
+                                <button class="border-0 bg-white"><span>&#128519;</span></button>
+                                <button class="border-0 bg-white"><span>&#128521;</span></button>
+                                <button class="border-0 bg-white"><span>&#128525;</span></button>
+                                <button class="border-0 bg-white"><span>&#128526;</span></button>
+                                <button class="border-0 bg-white"><span>&#128527;</span></button>
+                                <button class="border-0 bg-white"><span>&#128531;</span></button>
+                                <button class="border-0 bg-white"><span>&#128533;</span></button>
+                                <button class="border-0 bg-white"><span>&#128536;</span></button>
+                                <button class="border-0 bg-white"><span>&#128540;</span></button>
+                                <button class="border-0 bg-white"><span>&#128545;</span></button>
+                                <button class="border-0 bg-white"><span>&#128546;</span></button>
+                                <button class="border-0 bg-white"><span>&#128548;</span></button>
+                                <button class="border-0 bg-white"><span>&#128554;</span></button>
+                                <button class="border-0 bg-white"><span>&#128557;</span></button>
                             </div>
                          </ul>
                     </div>
@@ -205,7 +206,7 @@
                         >
                         <label for="messageInput">Scrivi un messaggio</label>
                     </div>
-                    <a href=""><i class="fa-solid fa-microphone me-5 fs-3 text-black"></i></a>
+                    <button class="border-0"><i class="fa-solid fa-microphone me-5 fs-3 text-black"></i></button>
                 </div>
                 <!-- fine sezione di scrittura in chat -->
             </div>

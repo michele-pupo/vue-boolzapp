@@ -33,6 +33,7 @@ createApp({
 
         keyFiltered : '',
         activeContact: null,
+        theme: 'theme-light',
 
           contacts: [
             {
@@ -330,6 +331,16 @@ createApp({
             if (this.activeContact !== null) {
                 this.contacts.splice(this.activeContact, 1);
                 this.activeContact = null; // Deseleziona il contatto attivo
+            }
+        },
+
+        // Metodo per cambiare il tema
+        changeTheme() {
+            // Verifica il tema corrente e cambialo in base ad esso
+            if (this.theme === 'theme-light') {
+                this.theme = 'theme-dark'; // Cambia in tema scuro
+            } else {
+                this.theme = 'theme-light'; // Cambia in tema chiaro
             }
         },
     },
