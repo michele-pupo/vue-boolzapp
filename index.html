@@ -79,12 +79,12 @@
                         <div class="d-flex gap-3 align-items-center ms-4">
                             <img class="rounded-5 mt-2" :src="contact.avatar" :alt="`avatar-user-${contact.name}`">
                             <div id="user-text" class="flex-column">
-                                <h2 class="fs-5">{{ contact.name }}</h2>
-                                <h3 class="fs-6">Ultimo messaggio inviato</h3>
+                                <h2>{{ contact.name }}</h2>
+                                <h3>Ultimo messaggio inviato</h3>
                             </div>
                         </div>
                         <div class="d-flex align-items-end me-2">
-                            <h4 class="fs-6">{{ formatLastMessageDateTime(contact.messages[contact.messages.length - 1].date) }}
+                            <h4>{{ formatLastMessageDateTime(contact.messages[contact.messages.length - 1].date) }}
                         </div>    
                     </div>
                 </div>
@@ -139,7 +139,7 @@
                                                 <li><a class="dropdown-item" href="">Informazioni messaggio</a></li>
                                             </ul>
                                         </div>
-                                        <div class="fs-6 text-nowrap">
+                                        <div class="text-nowrap">
                                             <span>{{ formatMessageDate(message.date) }}</span>
                                         </div>
                                     </div>
@@ -150,7 +150,7 @@
                                     <div>
                                         <h2 class="p-3">{{ message.message }}</h2>
                                     </div>
-                                    <div class="fs-6 text-nowrap">
+                                    <div class="text-nowrap">
                                         <span>{{ formatMessageDate(message.date) }}</span>
                                     </div>
                                 </div>
@@ -159,8 +159,8 @@
                     </div>
                     <div v-else>
                         <div class="d-flex flex-column align-items-center">
-                            <p id="no-contact" class="fs-3">Nessun contatto attivo</p>
-                            <p id="encrypted" class="d-flex align-items-center gap-3"><i class="fa-solid fa-lock"></i>I tuoi messaggi personali sono protetti dalla crittografia end-to-end</p>
+                            <p id="no-contact" class="px-3">Nessun contatto attivo</p>
+                            <p id="encrypted" class="d-flex align-items-center gap-3 px-4"><i class="fa-solid fa-lock"></i>I tuoi messaggi personali sono protetti dalla crittografia end-to-end</p>
                         </div>
                     </div>
                 </div>
