@@ -2,6 +2,13 @@
     height: 100vh;
 }
 
+#changeTheme{
+    position: absolute;
+    right: 150px;
+    top: 50px;
+    background-color: #009688;
+}
+
 /* container verde in alto */
 #container-green{
     height: 150px;
@@ -106,7 +113,6 @@
 #user{
     height: 80px;
     width: 100%;
-    background-color: #ffffff;
     border-top: 2px solid #f9f9f9;
     cursor: pointer;
     user-select: none;
@@ -135,11 +141,8 @@
 
 /* container con la chat selezionata */
 #container-chat{
-    /* position: absolute; */
     max-width: 100%;
-    height: 100%;
     flex-grow: 1;
-    background-image: url(../img/mine.jpg);
 }
 
 #container-chat #no-contact{
@@ -179,14 +182,12 @@
 #user-message{
     position: relative;
     flex-grow: 1;
-    background-color: #d5f9ba;
 }
 
 #reply-message{
     position: relative;
     flex-grow: 1;
     min-width: 120px;
-    background-color: #ffffff;
 }
 
 #icons-chat{
@@ -229,20 +230,53 @@
 #input-chat a{
     color: #6b7376;
 }
+/* fine sezione di scrittura in chat */
 
-.theme-light {
-    background-color: #ffffff;
-    color: #000000;
+/* stilizzazione cambio tema */
+.theme-light-chat {
+    color: black;
     background-image: url(../img/mine.jpg);
 }
 
-.theme-dark {
-    background-color: #333333;
-    color: #ffffff;
-    height: 100vh;
+.theme-dark-chat {
+    color: white;
     background-image: url(../img/Senza\ titolo.jpg);
 }
-/* fine sezione di scrittura in chat */
+
+.theme-light-message-sent{
+    background-color: #d5f9ba;
+}
+
+.theme-dark-message-sent{
+    background-color: #005d4b;
+}
+
+.theme-light-message-reply{
+    background-color: #ffffff;
+}
+
+.theme-dark-message-reply{
+    background-color: #121b22;
+}
+
+.theme-light{
+    background-color: #ffffff;
+    color: black;
+}
+
+.theme-dark{
+    background-color: #121b22;
+    color: #65686a;
+}
+
+.theme-text-light{
+    color: black;
+}
+
+.theme-text-dark{
+    color: white;
+}
+/* fine stilizzazione cambio tema */
 /* fine container che identifica la chat */
 /* fine container con la chat selezionata */
 

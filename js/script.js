@@ -33,7 +33,11 @@ createApp({
 
         keyFiltered : '',
         activeContact: null,
+        themeBackground: 'theme-light-chat',
         theme: 'theme-light',
+        themeMessageSent: 'theme-light-message-sent',
+        themeMessageReply: 'theme-light-message-reply',
+        themeText: 'theme-text-light',
 
           contacts: [
             {
@@ -334,14 +338,59 @@ createApp({
             }
         },
 
-        // Metodo per cambiare il tema
-        changeTheme() {
-            // Verifica il tema corrente e cambialo in base ad esso
-            if (this.theme === 'theme-light') {
-                this.theme = 'theme-dark'; // Cambia in tema scuro
+        handleChangeTheme() {
+            this.changeThemeBackground(); // Chiamare il primo metodo
+            this.changeTheme();
+            this.changeThemeSent();
+            this.changeThemeReply();
+            this.changeThemeText(); // Chiamare il secondo metodo
+          },
+
+        // metodo per cambiare il tema di background
+        changeThemeBackground() {
+            // verifichiamo il tema corrente e lo cambiamo in base ad esso
+            if (this.themeBackground === 'theme-light-chat') {
+                this.themeBackground = 'theme-dark-chat'; 
             } else {
-                this.theme = 'theme-light'; // Cambia in tema chiaro
+                this.themeBackground = 'theme-light-chat';
             }
         },
+
+        // metodo per cambiare il tema generale
+        changeTheme() {
+            // verifichiamo il tema corrente e lo cambiamo in base ad esso
+            if (this.theme === 'theme-light') {
+                this.theme = 'theme-dark'; 
+            } else {
+                this.theme = 'theme-light';
+            }
+        },
+
+        changeThemeSent(){
+            // verifichiamo il tema corrente e lo cambiamo in base ad esso
+            if (this.themeMessageSent === 'theme-light-message-sent') {
+                this.themeMessageSent = 'theme-dark-message-sent'; 
+            } else {
+                this.themeMessageSent = 'theme-light-message-sent';
+            }
+        },
+
+        changeThemeReply(){
+            // verifichiamo il tema corrente e lo cambiamo in base ad esso
+            if (this.themeMessageReply === 'theme-light-message-reply') {
+                this.themeMessageReply = 'theme-dark-message-reply'; 
+            } else {
+                this.themeMessageReply = 'theme-light-message-reply';
+            }
+        },
+
+        changeThemeText(){
+            // verifichiamo il tema corrente e lo cambiamo in base ad esso
+            if (this.themeText === 'theme-text-light') {
+                this.themeText = 'theme-text-dark'; 
+            } else {
+                this.themeText = 'theme-text-light';
+            }
+        }
     },
 }).mount('#app');

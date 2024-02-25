@@ -26,18 +26,24 @@
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
 
     <div id="app">
-        <button @click="changeTheme">Cambia tema</button>
+
+        <!-- bottone di cambio modalità da light a dark -->
+        <button class="display-6 border-0" 
+                id="changeTheme" 
+                @click="handleChangeTheme"
+        >
+                <i class="fa-solid fa-circle-half-stroke"></i></button>
         
         <!-- container verde in alto -->
         <div id="container-green"></div>
         <!-- container grigio di sfondo -->
         <div id="container-big-grey"></div>
         <!-- inizio container principale di utenti e chat -->
-        <div id="container-big-chat" class="d-flex" :class="theme">
+        <div id="container-big-chat" class="d-flex">
             <!-- inizio container con profilo proprio e chat -->
             <div id="container-contacts">
                 <!-- inizio sezione profilo proprio -->
-                <div id="user-profile" class="d-flex justify-content-between">
+                <div id="user-profile" class="d-flex justify-content-between" :class="theme">
                     <div class="d-flex align-items-center">
                         <img class="rounded-5 ms-2" src="img/my-avatar.jpg" alt="">
                         <h4 class="fs-6 ms-2">Miky</h4>
@@ -70,30 +76,32 @@
                 </div>
                 <!-- fine sezione ricerca chat -->
                 <!-- inizio sezione con tutti gli utenti della chat -->
-                <div id="user-chat-list" class="mt-4">
-                    <div id="user" 
-                         v-for="(contact, index) in searchChat()" 
-                         class="d-flex justify-content-between"
-                         @click="clickSingleChat(index)"
-                         :class="index == activeContact ? 'active' : ''"
-                    >
-                        <div class="d-flex gap-3 align-items-center ms-4">
-                            <img class="rounded-5 mt-2" :src="contact.avatar" :alt="`avatar-user-${contact.name}`">
-                            <div id="user-text" class="flex-column">
-                                <h2>{{ contact.name }}</h2>
-                                <h3>Ultimo messaggio inviato</h3>
+                <div id="user-chat-list" class="mt-4" :class="theme">
+                    <div id="user-container" :class="theme">
+                        <div id="user" 
+                            v-for="(contact, index) in searchChat()" 
+                            class="d-flex justify-content-between"
+                            @click="clickSingleChat(index)"
+                            :class="index == activeContact ? 'active' : ''"
+                        >
+                            <div class="d-flex gap-3 align-items-center ms-4">
+                                <img class="rounded-5 mt-2" :src="contact.avatar" :alt="`avatar-user-${contact.name}`">
+                                <div id="user-text" class="flex-column">
+                                    <h2>{{ contact.name }}</h2>
+                                    <h3>Ultimo messaggio inviato</h3>
+                                </div>
                             </div>
+                            <div class="d-flex align-items-end me-2">
+                                <h4>{{ formatLastMessageDateTime(contact.messages[contact.messages.length - 1].date) }}
+                            </div>    
                         </div>
-                        <div class="d-flex align-items-end me-2">
-                            <h4>{{ formatLastMessageDateTime(contact.messages[contact.messages.length - 1].date) }}
-                        </div>    
                     </div>
                 </div>
                 <!-- fine sezione con tutti gli utenti della chat -->
             </div>
             <!-- fine container con profilo proprio e chat -->
             <!-- inizio container principale della chat -->
-            <div id="container-chat" class="d-flex flex-column justify-content-between">
+            <div id="container-chat" class="d-flex flex-column justify-content-between" :class="themeBackground">
                 <!-- inizio sezione che identifica le diverse chat -->
                 <div id="user-chat" v-if="activeContact !== null">
                     <div id="user-profile-chat" class="border border-start d-flex justify-content-between">
@@ -122,13 +130,16 @@
                 </div>
                 <!-- fine sezione che identifica le diverse chat -->
                 <!-- inizio sezione con il corpo principale della chat -->
-                <div id="main-chat" :class="theme">
+                <div id="main-chat">
                     <div v-if="activeContact !== null">
                         <div v-for="(message, messageIndex) in contacts[activeContact].messages" :key="messageIndex">
                             <div v-if="message.status === 'sent'" class="d-flex flex-column align-items-end">
-                                <div id="user-message" class="d-flex align-items-center justify-content-between ps-3 rounded-3 mb-3">
+                                <div id="user-message" 
+                                     class="d-flex align-items-center justify-content-between ps-3 rounded-3 mb-3"
+                                     :class="themeMessageSent"
+                                >
                                     <div>
-                                        <h2 class="p-3">{{ message.message }}</h2>
+                                        <h2 class="p-3" :class="themeText">{{ message.message }}</h2>
                                     </div>
                                     <div class="d-flex flex-column align-items-end">
                                         <div class="dropdown">
@@ -147,9 +158,12 @@
                                 </div>
                             </div>
                             <div v-else-if="message.status === 'received'" class="d-flex flex-column align-items-start">
-                                <div id="reply-message" class="d-flex align-items-center justify-content-between ps-3 rounded-3 mb-3">
+                                <div id="reply-message" 
+                                     class="d-flex align-items-center justify-content-between ps-3 rounded-3 mb-3"
+                                     :class="themeMessageReply"
+                                >
                                     <div>
-                                        <h2 class="p-3">{{ message.message }}</h2>
+                                        <h2 class="p-3" :class="themeText">{{ message.message }}</h2>
                                     </div>
                                     <div class="text-nowrap">
                                         <span>{{ formatMessageDate(message.date) }}</span>
@@ -167,7 +181,10 @@
                 </div>
                 <!-- fine sezione con il corpo principale della chat -->
                 <!-- inizio sezione di scrittura in chat -->
-                <div id="input-chat" v-if="activeContact !== null" class="d-flex justify-content-between align-items-center position-relative">
+                <div id="input-chat" 
+                     v-if="activeContact !== null" 
+                     class="d-flex justify-content-between align-items-center position-relative"
+                >
                     <!-- inizio emoticon menu -->
                     <div class="dropdown">
                         <button class="btn ms-5" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
