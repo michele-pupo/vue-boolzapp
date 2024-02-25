@@ -41,7 +41,7 @@
     width: 560px;
     height: 100%;
     background-color: #ffffff;
-    border-right: 2px solid #f9f9f9;
+    border-right: 2px solid #e9ebeb;
 }
 
 #user-profile{
@@ -113,13 +113,9 @@
 #user{
     height: 80px;
     width: 100%;
-    border-top: 2px solid #f9f9f9;
+    border-top: 2px solid #e9ebeb;
     cursor: pointer;
     user-select: none;
-}
-
-#user.active{
-    background-color: #e9ebeb;
 }
 
 #user img{
@@ -213,8 +209,6 @@
 /* container che identifica la chat */
 #user-profile-chat{
     height: 70px;
-    width: 100%;
-    background-color: #eaeaea;
 }
 
 #user-profile-chat img{
@@ -224,11 +218,6 @@
 #input-chat{
     height: 75px;
     width: 100%; 
-    background-color: #f3eeea;
-}
-
-#input-chat a{
-    color: #6b7376;
 }
 /* fine sezione di scrittura in chat */
 
@@ -275,6 +264,30 @@
 
 .theme-text-dark{
     color: white;
+}
+
+.theme-light-active{
+    background-color: #e9ebeb;
+}
+
+.theme-dark-active{
+    background-color: #2b3942;
+}
+
+.theme-light-another{
+    background-color: #f3eeea;
+}
+
+.theme-dark-another{
+    background-color: #1f2c34;
+}
+
+.theme-light-label{
+    background-color: white;
+}
+
+.theme-dark-label{
+    background-color: #2b3942;
 }
 /* fine stilizzazione cambio tema */
 /* fine container che identifica la chat */

@@ -82,12 +82,12 @@
                             v-for="(contact, index) in searchChat()" 
                             class="d-flex justify-content-between"
                             @click="clickSingleChat(index)"
-                            :class="index == activeContact ? 'active' : ''"
+                            :class="[index == activeContact ? (themeActive === 'theme-light-active' ? 'theme-light-active' : 'theme-dark-active') : '']"
                         >
                             <div class="d-flex gap-3 align-items-center ms-4">
                                 <img class="rounded-5 mt-2" :src="contact.avatar" :alt="`avatar-user-${contact.name}`">
                                 <div id="user-text" class="flex-column">
-                                    <h2>{{ contact.name }}</h2>
+                                    <h2 :class="themeText">{{ contact.name }}</h2>
                                     <h3>Ultimo messaggio inviato</h3>
                                 </div>
                             </div>
@@ -101,14 +101,20 @@
             </div>
             <!-- fine container con profilo proprio e chat -->
             <!-- inizio container principale della chat -->
-            <div id="container-chat" class="d-flex flex-column justify-content-between" :class="themeBackground">
+            <div id="container-chat" 
+                 class="d-flex flex-column justify-content-between" 
+                 :class="themeBackground"
+            >
                 <!-- inizio sezione che identifica le diverse chat -->
                 <div id="user-chat" v-if="activeContact !== null">
-                    <div id="user-profile-chat" class="border border-start d-flex justify-content-between">
+                    <div id="user-profile-chat" 
+                         :class="themeAnother" 
+                         class="border border-start d-flex justify-content-between"
+                    >
                         <div v-if="activeContact !== null" class="d-flex align-items-center">
-                            <img class="rounded-5 ms-2" :src="contacts[activeContact].avatar" :alt="`avatar-user-${contacts[activeContact].name}`">
+                            <img class="rounded-5 ms-3 me-3" :src="contacts[activeContact].avatar" :alt="`avatar-user-${contacts[activeContact].name}`">
                             <div id="user-text" class="flex-column">
-                                <h2 class="fs-6">{{ contacts[activeContact].name }}</h2>
+                                <h2 class="fs-6" :class="themeText">{{ contacts[activeContact].name }}</h2>
                                 <h6 class="fs-6">{{ getLastMessageDateTime(contacts[activeContact].messages) }}</h6>
                             </div>
                         </div>
@@ -184,6 +190,7 @@
                 <div id="input-chat" 
                      v-if="activeContact !== null" 
                      class="d-flex justify-content-between align-items-center position-relative"
+                     :class="themeAnother"
                 >
                     <!-- inizio emoticon menu -->
                     <div class="dropdown">
@@ -220,10 +227,11 @@
                             id="messageInput" 
                             placeholder="Scrivi un messaggio" 
                             @keypress.enter="sendMessage"
+                            :class="themeLabel"
                         >
                         <label for="messageInput">Scrivi un messaggio</label>
                     </div>
-                    <button class="border-0"><i class="fa-solid fa-microphone me-5 fs-3 text-black"></i></button>
+                    <button class="border-0" :class="themeAnother"><i class="fa-solid fa-microphone me-5 fs-3 text-black"></i></button>
                 </div>
                 <!-- fine sezione di scrittura in chat -->
             </div>

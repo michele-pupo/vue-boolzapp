@@ -38,6 +38,9 @@ createApp({
         themeMessageSent: 'theme-light-message-sent',
         themeMessageReply: 'theme-light-message-reply',
         themeText: 'theme-text-light',
+        themeActive: 'theme-light-active',
+        themeAnother: 'theme-light-another',
+        themeLabel:'theme-light-label',
 
           contacts: [
             {
@@ -343,7 +346,10 @@ createApp({
             this.changeTheme();
             this.changeThemeSent();
             this.changeThemeReply();
-            this.changeThemeText(); // Chiamare il secondo metodo
+            this.changeThemeText();
+            this.changeThemeActive();
+            this.changethemeAnother();
+            this.changeThemeLabel(); // Chiamare il secondo metodo
           },
 
         // metodo per cambiare il tema di background
@@ -391,6 +397,33 @@ createApp({
             } else {
                 this.themeText = 'theme-text-light';
             }
-        }
+        },
+
+        changeThemeActive(){
+            // verifichiamo il tema corrente e lo cambiamo in base ad esso
+            if (this.themeActive === 'theme-light-active') {
+                this.themeActive = 'theme-dark-dark'; 
+            } else {
+                this.themeActive = 'theme-light-active';
+            }
+        },
+
+        changethemeAnother(){
+            // verifichiamo il tema corrente e lo cambiamo in base ad esso
+            if (this.themeAnother === 'theme-light-another') {
+                this.themeAnother = 'theme-dark-another'; 
+            } else {
+                this.themeAnother = 'theme-light-another';
+            }
+        },
+
+        changethemeLabel(){
+            // verifichiamo il tema corrente e lo cambiamo in base ad esso
+            if (this.themeLabel === 'theme-light-label') {
+                this.themeLabel = 'theme-dark-label'; 
+            } else {
+                this.themeLabel = 'theme-light-label';
+            }
+        },
     },
 }).mount('#app');
