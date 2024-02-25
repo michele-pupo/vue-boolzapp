@@ -52,6 +52,14 @@
     color: #c7cacb;
 }
 
+#user-profile i:hover{
+    color: black;
+}
+ 
+#user-profile-chat i:hover{
+    color: black;
+}
+
 #notifications{
     height: 80px;
     width: 100%;
@@ -187,6 +195,10 @@
 .dropdown .btn{
     border: transparent;
     color: #c7cacb;
+}
+
+.dropdown .btn:hover{
+    color: black
 }
 /* fine stilizzazione messaggio utente e risposta */
 
@@ -331,7 +343,6 @@
     #user h4{
         font-size: 7px;
         text-wrap: nowrap;
-        m
     }
 
     #user-message h2
