@@ -41,6 +41,12 @@ createApp({
         themeActive: 'theme-light-active',
         themeAnother: 'theme-light-another',
         themeLabel:'theme-light-label',
+        themeNotifications:'theme-light-notifications',
+        themeBgBell:'theme-light-bg-bell',
+        themeTextBell:'theme-light-text-bell',
+        themeBorder:'theme-light-border',
+        themeBorderTop:'theme-light-border-top',
+        themeContainerBig:'theme-light-container-big',
 
           contacts: [
             {
@@ -349,7 +355,13 @@ createApp({
             this.changeThemeText();
             this.changeThemeActive();
             this.changethemeAnother();
-            this.changeThemeLabel(); // Chiamare il secondo metodo
+            this.changeThemeLabel(); 
+            this.changeThemeNotifications();
+            this.changeThemeBgBell();
+            this.changeThemeTextBell();
+            this.changeThemeBorder();
+            this.changeThemeBorderTop();
+            this.changeThemeContainerBig();// Chiamare il secondo metodo
           },
 
         // metodo per cambiare il tema di background
@@ -417,7 +429,7 @@ createApp({
             }
         },
 
-        changethemeLabel(){
+        changeThemeLabel(){
             // verifichiamo il tema corrente e lo cambiamo in base ad esso
             if (this.themeLabel === 'theme-light-label') {
                 this.themeLabel = 'theme-dark-label'; 
@@ -425,5 +437,59 @@ createApp({
                 this.themeLabel = 'theme-light-label';
             }
         },
+
+        changeThemeNotifications(){
+            // verifichiamo il tema corrente e lo cambiamo in base ad esso
+            if (this.themeNotifications === 'theme-light-notifications') {
+                this.themeNotifications = 'theme-dark-notifications'; 
+            } else {
+                this.themeNotifications = 'theme-light-notifications';
+            }
+        },
+
+        changeThemeBgBell(){
+            // verifichiamo il tema corrente e lo cambiamo in base ad esso
+            if (this.themeBgBell === 'theme-light-bg-bell') {
+                this.themeBgBell = 'theme-dark-bg-bell'; 
+            } else {
+                this.themeBgBell = 'theme-light-bg-bell';
+            }
+        },
+
+        changeThemeTextBell(){
+            // verifichiamo il tema corrente e lo cambiamo in base ad esso
+            if (this.themeTextBell === 'theme-light-text-bell') {
+                this.themeTextBell = 'theme-dark-text-bell'; 
+            } else {
+                this.themeTextBell = 'theme-light-text-bell';
+            }
+        },
+
+        changeThemeBorder(){
+            // verifichiamo il tema corrente e lo cambiamo in base ad esso
+            if (this.themeBorder === 'theme-light-border') {
+                this.themeBorder = 'theme-dark-border'; 
+            } else {
+                this.themeBorder = 'theme-light-border';
+            }
+        },
+
+        changeThemeBorderTop(){
+            // verifichiamo il tema corrente e lo cambiamo in base ad esso
+            if (this.themeBorderTop === 'theme-light-border-top') {
+                this.themeBorderTop = 'theme-dark-border-top'; 
+            } else {
+                this.themeBorderTop = 'theme-light-border-top';
+            }
+        },
+
+        changeThemeContainerBig(){
+            // verifichiamo il tema corrente e lo cambiamo in base ad esso
+            if (this.themeContainerBig === 'theme-light-container-big') {
+                this.themeContainerBig = 'theme-dark-container-big'; 
+            } else {
+                this.themeContainerBig = 'theme-light-container-big';
+            }
+        }
     },
 }).mount('#app');

@@ -37,16 +37,16 @@
         <!-- container verde in alto -->
         <div id="container-green"></div>
         <!-- container grigio di sfondo -->
-        <div id="container-big-grey"></div>
+        <div id="container-big-grey" :class="themeContainerBig"></div>
         <!-- inizio container principale di utenti e chat -->
         <div id="container-big-chat" class="d-flex">
             <!-- inizio container con profilo proprio e chat -->
-            <div id="container-contacts">
+            <div id="container-contacts" :class="themeBorder">
                 <!-- inizio sezione profilo proprio -->
-                <div id="user-profile" class="d-flex justify-content-between" :class="theme">
+                <div id="user-profile" class="d-flex justify-content-between" :class="themeAnother">
                     <div class="d-flex align-items-center">
                         <img class="rounded-5 ms-2" src="img/my-avatar.jpg" alt="">
-                        <h4 class="fs-6 ms-2">Miky</h4>
+                        <h4 class="fs-6 ms-2" :class="themeText">Miky</h4>
                     </div>
                     <div class="d-flex align-items-center gap-3 fs-5 me-4">
                         <a href=""><i class="fa-solid fa-circle-notch"></i></a>
@@ -56,29 +56,41 @@
                 </div>
                 <!-- fine sezione profilo proprio -->
                 <!-- inizio sezione notifiche nuovi messaggi -->
-                <div id="notifications" class="d-flex align-items-center">
-                    <a href=""><i class="fa-solid fa-bell-slash fs-3 rounded-5 ms-4 me-4"></i></a>
+                <div id="notifications" class="d-flex align-items-center" :class="themeNotifications">
+                    <button class="border-0" 
+                            :class="themeNotifications"
+                    ><i class="fa-solid fa-bell-slash fs-3 rounded-5 ms-4 me-4" 
+                        :class="themeBgBell"
+                    ></i></button>
                     <div>
-                        <h3>Ricevi notifiche di nuovi messaggi</h3>
+                        <h3 :class="themeText">Ricevi notifiche di nuovi messaggi</h3>
                         <h4><a href="">Attiva notifiche desktop</a></h4>
                     </div>
                 </div>
                 <!-- fine sezione notifiche nuovi messaggi -->
                 <!-- inizio sezione ricerca chat -->
-                <div id="search-chat" class="p-2">
+                <div id="search-chat" 
+                     class="p-2" 
+                     :class="themeAnother"
+                >
                     <div class="input-group">
-                        <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <div class="form-floating">
-                            <input v-model="keyFiltered" type="search" class="form-control" placeholder="Cerca o inizia una nuova chat">
-                            <label for="floatingInputGroup1">Cerca o inizia una nuova chat</label>
-                        </div>
+                        <span class="input-group-text border-0" :class="themeAnother"><i class="fa-solid fa-magnifying-glass" :class="themeText"></i></span>
+                        <input v-model="keyFiltered" 
+                               type="search" 
+                               class="form-control border-0" 
+                               placeholder="Cerca o inizia una nuova chat"
+                               aria-label="Cerca o inizia una nuova chat"
+                               aria-describedby="add-todo" 
+                               :class="themeLabel"
+                            >
                     </div>
                 </div>
                 <!-- fine sezione ricerca chat -->
                 <!-- inizio sezione con tutti gli utenti della chat -->
-                <div id="user-chat-list" class="mt-4" :class="theme">
+                <div id="user-chat-list" :class="theme">
                     <div id="user-container" :class="theme">
                         <div id="user" 
+                            :class="themeBorderTop"
                             v-for="(contact, index) in searchChat()" 
                             class="d-flex justify-content-between"
                             @click="clickSingleChat(index)"
@@ -109,7 +121,7 @@
                 <div id="user-chat" v-if="activeContact !== null">
                     <div id="user-profile-chat" 
                          :class="themeAnother" 
-                         class="border border-start d-flex justify-content-between"
+                         class="d-flex justify-content-between"
                     >
                         <div v-if="activeContact !== null" class="d-flex align-items-center">
                             <img class="rounded-5 ms-3 me-3" :src="contacts[activeContact].avatar" :alt="`avatar-user-${contacts[activeContact].name}`">
@@ -221,15 +233,15 @@
                          </ul>
                     </div>
                     <!-- fine emoticon menu -->
-                    <div class="form-floating flex-grow-1 mx-5">
+                    <div class="flex-grow-1 mx-5">
                         <input type="text" 
-                            class="form-control" 
+                            class="form-control border-0" 
                             id="messageInput" 
-                            placeholder="Scrivi un messaggio" 
+                            placeholder="Scrivi un messaggio"
+                            aria-label="Scrivi un messaggio" 
                             @keypress.enter="sendMessage"
                             :class="themeLabel"
                         >
-                        <label for="messageInput">Scrivi un messaggio</label>
                     </div>
                     <button class="border-0" :class="themeAnother"><i class="fa-solid fa-microphone me-5 fs-3 text-black"></i></button>
                 </div>

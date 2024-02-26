@@ -23,7 +23,6 @@
     height: calc(100vh - 150px);
     width: 100%;
     margin-bottom: 0px;
-    background-color: #dadbd4;
 }
 /* fine container grigio */
 
@@ -41,13 +40,11 @@
     width: 560px;
     height: 100%;
     background-color: #ffffff;
-    border-right: 2px solid #e9ebeb;
 }
 
 #user-profile{
     height: 70px;
     width: 100%;
-    background-color: #eaeaea;
 }
 
 #user-profile img{
@@ -70,15 +67,12 @@
 #notifications{
     height: 80px;
     width: 100%;
-    background-color: #8edafc;
 }
 
 #notifications .fa-bell-slash{
-    color: #8edafc;
     height: 45px;
     width: 45px;
     padding: 15px 48px 45px 15px;
-    background-color: white;
 }
 
 #notifications h3{
@@ -97,7 +91,6 @@
 #search-chat{
     height: 50px;
     width: 100%;
-    background-color: #fafafa;
 }
 
 #user-chat h6{
@@ -105,7 +98,7 @@
 }
 
 #user-chat-list{
-    height: calc(100vh - 275px);
+    height: calc(100vh - 250px);
     width: 100%;
     overflow-y: auto;
 }
@@ -113,14 +106,12 @@
 #user{
     height: 80px;
     width: 100%;
-    border-top: 2px solid #e9ebeb;
     cursor: pointer;
     user-select: none;
 }
 
 #user img{
     width: 60px;
-    background-color: #ffffff;
 }
 
 #user-text h2{
@@ -288,6 +279,54 @@
 
 .theme-dark-label{
     background-color: #2b3942;
+}
+
+.theme-light-notifications{
+    background-color: #8edafc;
+}
+
+.theme-dark-notifications{
+    background-color: #182329;
+}
+
+.theme-light-bg-bell{
+    background-color: white;
+}
+
+.theme-dark-bg-bell{
+    background-color: #8edafc;
+}
+
+.theme-light-text-bell{
+    background-color: white;
+}
+
+.theme-dark-text-bell{
+    background-color: black;
+}
+
+.theme-light-border{
+    border-right: 2px solid #e9ebeb;
+}
+
+.theme-dark-border{
+    border-right: 2px solid #252e35;
+}
+
+.theme-light-border-top{
+    border-top: 2px solid #e9ebeb;
+}
+
+.theme-dark-border-top{
+    border-top: 2px solid #252e35;
+}
+
+.theme-light-bontainer-big{
+    background-color: #dadbd4;
+}
+
+.theme-dark-container-big{
+    background-color: #0d1216;
 }
 /* fine stilizzazione cambio tema */
 /* fine container che identifica la chat */
