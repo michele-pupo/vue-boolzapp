@@ -191,6 +191,12 @@
     top: 5px;
 }
 
+#main-chat #reply-message .fa-star{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
 #user-message{
     position: relative;
     flex-grow: 1;

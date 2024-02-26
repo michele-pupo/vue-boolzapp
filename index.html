@@ -198,8 +198,22 @@
                                     <div>
                                         <h2 class="p-3" :class="themeText">{{ message.message }}</h2>
                                     </div>
-                                    <div class="text-nowrap">
-                                        <span>{{ formatMessageDate(message.date) }}</span>
+                                    <div class="d-flex flex-column align-items-end">
+                                        <div class="dropdown">
+                                            <button class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa-solid fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <li><a class="dropdown-item" href="#" @click="deleteMessage(messageIndex)">Cancella messaggio</a></li>
+                                                <li><a class="dropdown-item" href="#" @click="toggleMessageImportance(message)">Contrassegna</a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- stellina per i messaggi importanti -->
+                                        <i v-if="message.isImportant" class="fas fa-star text-warning"></i>
+                                        <!-- spunta sui messaggi ricevuti -->
+                                        <div class="text-nowrap">
+                                            <span>{{ formatMessageDate(message.date) }}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

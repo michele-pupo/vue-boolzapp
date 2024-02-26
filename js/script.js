@@ -399,7 +399,7 @@ createApp({
             this.contacts[this.activeContact].messages.splice(messageIndex, 1);
         },
 
-        // funzione per eliminare l'intera chat (contatto e messaggi)
+        // funzione per eliminare l'intera chat
         deleteChat() {
             if (this.activeContact !== null) {
                 this.contacts.splice(this.activeContact, 1);
@@ -413,7 +413,7 @@ createApp({
             return DateTime.fromFormat(lastMessage.date, 'dd/MM/yyyy HH:mm:ss');
         },
 
-        // aggiunta della stellina per il messaggio importante
+        // aggiunta della stellina per il messaggio
         toggleMessageImportance(message) {
             message.isImportant = !message.isImportant;
         },
