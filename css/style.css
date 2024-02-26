@@ -4,8 +4,8 @@
 
 #changeTheme{
     position: absolute;
-    right: 150px;
-    top: 50px;
+    right: 250px;
+    top: -5px;
     background-color: #009688;
 }
 
@@ -166,9 +166,17 @@
     color: #c7cacb;
 }
 
+#main-chat #user-message span{
+    right: 30px;
+}
+
 #user-message{
     position: relative;
     flex-grow: 1;
+}
+
+#user-message .fa-check-double{
+    color: #5abcda;
 }
 
 #reply-message{
@@ -435,7 +443,7 @@
     }
 
     #container-contacts{
-        width: 230px;
+        width: 250px;
     }
 
     #main-chat{

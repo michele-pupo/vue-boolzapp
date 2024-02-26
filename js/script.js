@@ -33,6 +33,7 @@ createApp({
 
         keyFiltered : '',
         activeContact: null,
+        isTyping: false,
         themeBackground: 'theme-light-chat', //thema sfondo chat principale
         theme: 'theme-light', //thema sfondo utenti
         themeMessageSent: 'theme-light-message-sent', //thema sfondo messaggio inviato
@@ -57,17 +58,20 @@ createApp({
                     {
                         date: '10/01/2020 15:30:55',
                         message: 'Hai portato a spasso il cane?',
-                        status: 'sent'
+                        status: 'sent',
+                        hasResponse: false
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         message: 'Ricordati di stendere i panni',
-                        status: 'sent'
+                        status: 'sent',
+                        hasResponse: false
                     },
                     {
                         date: '10/01/2020 16:15:22',
                         message: 'Tutto fatto!',
-                        status: 'received'
+                        status: 'received',
+                        hasResponse: false
                     }
                 ],
             },
@@ -79,17 +83,20 @@ createApp({
                     {
                         date: '20/03/2020 16:30:00',
                         message: 'Ciao come stai?',
-                        status: 'sent'
+                        status: 'sent',
+                        hasResponse: false
                     },
                     {
                         date: '20/03/2020 16:30:55',
                         message: 'Bene grazie! Stasera ci vediamo?',
-                        status: 'received'
+                        status: 'received',
+                        hasResponse: false
                     },
                     {
                         date: '20/03/2020 16:35:00',
                         message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                        status: 'sent'
+                        status: 'sent',
+                        hasResponse: false
                     }
                 ],
             },
@@ -101,17 +108,20 @@ createApp({
                     {
                         date: '28/03/2020 10:10:40',
                         message: 'La Marianna va in campagna',
-                        status: 'received'
+                        status: 'received',
+                        hasResponse: false
                     },
                     {
                         date: '28/03/2020 10:20:10',
                         message: 'Sicuro di non aver sbagliato chat?',
-                        status: 'sent'
+                        status: 'sent',
+                        hasResponse: false
                     },
                     {
                         date: '28/03/2020 16:15:22',
                         message: 'Ah scusa!',
-                        status: 'received'
+                        status: 'received',
+                        hasResponse: false
                     }
                 ],
             },
@@ -123,12 +133,14 @@ createApp({
                     {
                         date: '10/01/2020 15:30:55',
                         message: 'Lo sai che ha aperto una nuova pizzeria?',
-                        status: 'sent'
+                        status: 'sent',
+                        hasResponse: false
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         message: 'Si, ma preferirei andare al cinema',
-                        status: 'received'
+                        status: 'received',
+                        hasResponse: false
                     }
                 ],
             },
@@ -140,12 +152,14 @@ createApp({
                     {
                         date: '10/01/2020 15:30:55',
                         message: 'Ricordati di chiamare la nonna',
-                        status: 'sent'
+                        status: 'sent',
+                        hasResponse: false
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         message: 'Va bene, stasera la sento',
-                        status: 'received'
+                        status: 'received',
+                        hasResponse: false
                     }
                 ],
             },
@@ -157,17 +171,20 @@ createApp({
                     {
                         date: '10/01/2020 15:30:55',
                         message: 'Ciao Claudia, hai novità?',
-                        status: 'sent'
+                        status: 'sent',
+                        hasResponse: false
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         message: 'Non ancora',
-                        status: 'received'
+                        status: 'received',
+                        hasResponse: false
                     },
                     {
                         date: '10/01/2020 15:51:00',
                         message: 'Nessuna nuova, buona nuova',
-                        status: 'sent'
+                        status: 'sent',
+                        hasResponse: false
                     }
                 ],
             },
@@ -179,12 +196,14 @@ createApp({
                     {
                         date: '10/01/2020 15:30:55',
                         message: 'Fai gli auguri a Martina che è il suo compleanno!',
-                        status: 'sent'
+                        status: 'sent',
+                        hasResponse: false
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         message: 'Grazie per avermelo ricordato, le scrivo subito!',
-                        status: 'received'
+                        status: 'received',
+                        hasResponse: false
                     }
                 ],
             },
@@ -196,17 +215,20 @@ createApp({
                     {
                         date: '10/01/2020 15:30:55',
                         message: 'Ciao, andiamo a mangiare la pizza stasera?',
-                        status: 'received'
+                        status: 'received',
+                        hasResponse: false
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
-                        status: 'sent'
+                        status: 'sent',
+                        hasResponse: false
                     },
                     {
                         date: '10/01/2020 15:51:00',
                         message: 'OK!!',
-                        status: 'received'
+                        status: 'received',
+                        hasResponse: false
                     }
                 ],
             }
@@ -227,22 +249,35 @@ createApp({
             if (event.key === 'Enter') {
                 const messageInput = event.target.value.trim();
                 if (messageInput !== '') {
-
+        
                     // reimposta il valore del campo di input a una stringa vuota dopo l'invio del messaggio
                     event.target.value = '';
-
+        
                     // salviamo l'indice del contatto attivo al momento dell'invio
                     const activeContactIndex = this.activeContact;
-
+        
                     // orario corrente utilizzando Luxon 
                     const currentTime = DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
-
+        
                     // aggiungiamo il messaggio in chat insieme all'orario corrente 
-                    this.contacts[activeContactIndex].messages.push({
+                    const newMessage = {
                         message: messageInput,
                         status: 'sent',
                         date: currentTime
+                    };
+
+                    // aggiungiamo la doppia spunta ai messaggi già presenti in chat
+                    this.contacts.forEach(contact => {
+                        contact.messages.forEach(message => {
+                            message.hasResponse = true;
+                        });
                     });
+        
+                    // aggiungiamo il nuovo messaggio al contatto attivo
+                    this.contacts[activeContactIndex].messages.push(newMessage);
+        
+                    // Imposta hasResponse a false per il nuovo messaggio
+                    newMessage.hasResponse = false;
         
                     // definiamo una lista di frasi casuali
                     const randomResponses = [
@@ -269,13 +304,13 @@ createApp({
                     // selezioniamo casualmente una frase dalla lista
                     const randomIndex = Math.floor(Math.random() * randomResponses.length);
                     const randomResponse = randomResponses[randomIndex];
-
+        
                     // calcola la lunghezza del messaggio di risposta
                     const responseLength = randomResponse.length;
-
+        
                     // calcola un ritardo basato sulla lunghezza del messaggio
                     const timeout = responseLength * 50; // Ad esempio, 50 millisecondi per carattere
-
+        
                     // aggiungiamo la risposta casuale dopo il ritardo calcolato
                     setTimeout(() => {
                         const currentTime = DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
@@ -284,16 +319,11 @@ createApp({
                             status: 'received',
                             date: currentTime
                         });
-
-                        // dopo aver aggiunto la risposta casuale, sposta la chat attiva in cima alla lista dei contatti
-                        if (this.activeContact !== null) {
-                            const contact = this.contacts.splice(this.activeContact, 1)[0];
-                            // con il metodo "unshit" portiamo l'elemnto dell'array contatti come primo
-                            this.contacts.unshift(contact);
-                            this.activeContact = 0; 
-                        }
-
-                        // esegue lo sroll verso il basso in automatico fino all'ultimo messaggio
+        
+                        // impostiamo "hasResponse" a true per il nuovo messaggio
+                        newMessage.hasResponse = true;
+        
+                        // eseguiamo lo scroll verso il basso in automatico fino all'ultimo messaggio
                         this.$nextTick(() => {
                             const container = document.getElementById('main-chat');
                             container.scrollTop = container.scrollHeight;
@@ -520,12 +550,19 @@ createApp({
         }
     },
 
-    // usando la funzione per calcolare la data e l'ora dell'ultimo messaggio inviato, usiamo il metodo "sort" come criterio di riordinamento
     mounted() {
+        // usando la funzione per calcolare la data e l'ora dell'ultimo messaggio inviato, usiamo il metodo "sort" come criterio di riordinamento
         this.contacts.sort((a, b) => {
             const lastMessageDateA = this.lastMessageDate(a);
             const lastMessageDateB = this.lastMessageDate(b);
             return lastMessageDateB - lastMessageDateA;
+        });
+
+        // aggiungiamo la proprietà hasResponse a tutti i messaggi già presenti in chat
+        this.contacts.forEach(contact => {
+            contact.messages.forEach(message => {
+                message.hasResponse = true;
+            });
         });
     }
 }).mount('#app');

@@ -28,7 +28,7 @@
     <div id="app">
 
         <!-- bottone di cambio modalità da light a dark -->
-        <button class="display-6 border-0" 
+        <button class="fs-5 border-0" 
                 id="changeTheme" 
                 @click="handleChangeTheme"
         >
@@ -45,7 +45,7 @@
                 <!-- inizio sezione profilo proprio -->
                 <div id="user-profile" class="d-flex justify-content-between" :class="themeAnother">
                     <div class="d-flex align-items-center">
-                        <img class="rounded-5 ms-2" src="img/my-avatar.jpg" alt="">
+                        <img class="rounded-5 ms-3" src="img/my-avatar.jpg" alt="">
                         <h4 class="fs-6 ms-2" :class="themeText">Miky</h4>
                     </div>
                     <div class="d-flex align-items-center gap-3 fs-5 me-4">
@@ -169,6 +169,13 @@
                                                 <li><a class="dropdown-item" href="#" @click="deleteMessage(messageIndex)">Cancella messaggio</a></li>
                                                 <li><a class="dropdown-item" href="">Informazioni messaggio</a></li>
                                             </ul>
+                                        </div>
+                                        <!-- spunta sui messaggi inviati  -->
+                                        <div class="me-2 fs-5" v-if="message.status === 'sent'">
+                                            <!-- mostriamo la spunta singola se il messaggio è stato inviato e non ha ancora risposta -->
+                                            <i v-if="!message.hasResponse" class="fas fa-check"></i>
+                                            <!-- mostriamo la spunta doppia e di colore blu se il messaggio è stato inviato e ha già una risposta -->
+                                            <i v-else class="fas fa-check-double"></i>
                                         </div>
                                         <div class="text-nowrap">
                                             <span>{{ formatMessageDate(message.date) }}</span>
