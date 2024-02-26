@@ -2,6 +2,7 @@
     height: 100vh;
 }
 
+/* stilizzazione splash page */
 #splash-page {
     position: absolute;
     top: 0;
@@ -21,6 +22,7 @@
     top: -5px;
     background-color: #009688;
 }
+/* fine stilizzazione splash page */
 
 /* container verde in alto */
 #container-green{
@@ -181,6 +183,12 @@
 
 #main-chat #user-message span{
     right: 35px;
+}
+
+#main-chat #user-message .fa-star{
+    position: absolute;
+    left: 5px;
+    top: 5px;
 }
 
 #user-message{

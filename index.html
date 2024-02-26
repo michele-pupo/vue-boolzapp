@@ -172,9 +172,11 @@
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <li><a class="dropdown-item" href="#" @click="deleteMessage(messageIndex)">Cancella messaggio</a></li>
-                                                <li><a class="dropdown-item" href="">Informazioni messaggio</a></li>
+                                                <li><a class="dropdown-item" href="#" @click="toggleMessageImportance(message)">Contrassegna</a></li>
                                             </ul>
                                         </div>
+                                        <!-- stellina per i messaggi importanti -->
+                                        <i v-if="message.isImportant" class="fas fa-star text-warning"></i>
                                         <!-- spunta sui messaggi inviati  -->
                                         <div class="me-2 fs-5" v-if="message.status === 'sent'">
                                             <!-- mostriamo la spunta singola se il messaggio è stato inviato e non ha ancora risposta -->
