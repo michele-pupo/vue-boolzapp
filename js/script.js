@@ -255,7 +255,7 @@ createApp({
                 ],
             },
             {
-                name: 'Homer Simpson',
+                name: 'Homer',
                 avatar: 'img/avatar_9.jpg',
                 visible: true,
                 messages: [

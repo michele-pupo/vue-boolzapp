@@ -478,7 +478,7 @@
     }
 
     #container-contacts{
-        width: 250px;
+        width: 270px;
     }
 
     #main-chat{
@@ -492,6 +492,10 @@
     #user h4{
         font-size: 7px;
         text-wrap: nowrap;
+    }
+
+    #user-chat h6{
+        display: none;
     }
 
     #user-message h2
@@ -529,14 +533,14 @@
     }
 
     #container-contacts{
-        width: 120px;
+        width: 130px;
     }
 
     #encrypted{
         font-size: 80px;
     }
 
-    #user-profile a{
+    #user-profile button{
         display: none;
     }
 
@@ -552,6 +556,14 @@
     #user-text h3, 
     #user h4{
         display: none;
+    }
+
+    #user-chat h6{
+        display: none;
+    }
+
+    #user-chat h2{
+        display: block;
     }
 
     #search-chat label{
