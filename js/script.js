@@ -253,7 +253,140 @@ createApp({
                         hasResponse: false
                     }
                 ],
-            }
+            },
+            {
+                name: 'Homer Simpson',
+                avatar: 'img/avatar_9.jpg',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/01/2020 16:03:50',
+                        message: 'Oh mio Dio! Alieni dallo spazio! Non mangiatemi! Ho moglie e figli, mangiate loro!',
+                        status: 'sent',
+                        hasResponse: false,
+                        isImportant: false
+                    },
+                    {
+                        date: '10/01/2020 16:04:00',
+                        message: 'Homer, ma cosa dici?',
+                        status: 'received',
+                        hasResponse: false,
+                        isImportant: false
+                    },
+                    {
+                        date: '10/01/2020 16:04:34',
+                        message: 'Il fatto che non mi interessi quello che stai dicendo, non vuol dire che non ti stia ascoltando!',
+                        status: 'sent',
+                        hasResponse: false,
+                        isImportant: false
+                    }
+                ],
+            },
+            {
+                name: 'Giovanni',
+                avatar: 'img/avatar_10.jpg',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/01/2021 15:30:55',
+                        message: 'Ciao, mandami il numero di Pietro',
+                        status: 'received',
+                        hasResponse: false,
+                        hasResponse: false
+                    },
+                    {
+                        date: '10/01/2021 15:50:00',
+                        message: 'A cosa ti serve?',
+                        status: 'sent',
+                        hasResponse: false,
+                        hasResponse: false
+                    },
+                    {
+                        date: '10/01/2021 15:51:00',
+                        message: 'Mandalo, poi ti dico',
+                        status: 'received',
+                        hasResponse: false,
+                        hasResponse: false
+                    }
+                ],
+            },
+            {
+                name: 'Pietro',
+                avatar: 'img/avatar_11.jpg',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/08/2022 18:30:55',
+                        message: 'Ciao, mi ha mandato il numero Giovanni',
+                        status: 'received',
+                        hasResponse: false,
+                        hasResponse: false
+                    },
+                    {
+                        date: '10/08/2022 18:50:00',
+                        message: 'ciao, dimmi tutto...',
+                        status: 'sent',
+                        hasResponse: false,
+                        hasResponse: false
+                    },
+                    {
+                        date: '10/08/2022 18:51:00',
+                        message: 'ci sei per un calceto stasera?',
+                        status: 'received',
+                        hasResponse: false,
+                        hasResponse: false
+                    }
+                ],
+            },
+            {
+                name: 'Teresa',
+                avatar: 'img/avatar_12.jpg',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/02/2024 09:40:55',
+                        message: 'Ciao, andiamo a mangiare il sushi domani a pranzo?',
+                        status: 'sent',
+                        hasResponse: false,
+                        hasResponse: false
+                    },
+                    {
+                        date: '10/02/2024 10:30:00',
+                        message: 'mmmhh, non saprei...',
+                        status: 'received',
+                        hasResponse: false,
+                        hasResponse: false
+                    },
+                ],
+            },
+            {
+                name: 'Giuseppe',
+                avatar: 'img/avatar_13.jpg',
+                visible: true,
+                messages: [
+                    {
+                        date: '25/02/2024 20:30:55',
+                        message: 'ma quindi, quanto è forte questa inter??',
+                        status: 'received',
+                        hasResponse: false,
+                        hasResponse: false
+                    },
+                    {
+                        date: '25/02/2024 20:45:18',
+                        message: 'hai visto, a maggio si festeggia la seconda stella',
+                        status: 'sent',
+                        hasResponse: false,
+                        hasResponse: false
+                    },
+                    {
+                        date: '25/02/2024 20:48:26',
+                        message: 'speriamooo...',
+                        status: 'received',
+                        hasResponse: false,
+                        hasResponse: false
+                    }
+                ],
+            },
         ],
     }
     },
@@ -300,57 +433,118 @@ createApp({
         
                     // Imposta hasResponse a false per il nuovo messaggio
                     newMessage.hasResponse = false;
-        
-                    // definiamo una lista di frasi casuali
-                    const randomResponses = [
-                        "Che la forza sia con te!",
-                        "Francamente, me ne infischio.",
-                        "Il mio nome è Bond, James Bond",
-                        "Potrebbe andar peggio! Potrebbe... piovere!",
-                        "Mi piace l'odore del napalm al mattino",
-                        "Io ne ho viste cose che voi umani non potreste immaginarvi",
-                        "Metti la cera, togli la cera",
-                        "Strade? Dove stiamo andando non c'è bisogno di strade!",
-                        "Se io posso cambiare, e se voi potete cambiare, allora, tutto il mondo può cambiare!",
-                        "Sei solo chiacchiere e distintivo!",
-                        "Mamma diceva sempre: la vita è come a una scatola di cioccolatini, non sai mai quello che ti capita",
-                        "Non può piovere per sempre",
-                        "Chi dorme non piglia tempo, chi ha tempo non aspetti pesce",
-                        "“Prima regola del Fight Club: non parlate mai del Fight Club. Seconda regola del Fight Club: non dovete parlare mai del Fight Club",
-                        "Al mio segnale scatenate l'Inferno",
-                        "O muori da eroe o vivi tanto a lungo da diventare il cattivo",
-                        "Un milione di dollari non è fico. Sai cos'è fico? Un miliardo di dollari",
-                        "Non è colpa tua… sono io",
-                    ];
-        
-                    // selezioniamo casualmente una frase dalla lista
-                    const randomIndex = Math.floor(Math.random() * randomResponses.length);
-                    const randomResponse = randomResponses[randomIndex];
-        
-                    // calcola la lunghezza del messaggio di risposta
-                    const responseLength = randomResponse.length;
-        
-                    // calcola un ritardo basato sulla lunghezza del messaggio
-                    const timeout = responseLength * 50; // Ad esempio, 50 millisecondi per carattere
-        
-                    // aggiungiamo la risposta casuale dopo il ritardo calcolato
-                    setTimeout(() => {
-                        const currentTime = DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
-                        this.contacts[activeContactIndex].messages.push({
-                            message: randomResponse,
-                            status: 'received',
-                            date: currentTime
-                        });
-        
-                        // impostiamo "hasResponse" a true per il nuovo messaggio
-                        newMessage.hasResponse = true;
-        
-                        // eseguiamo lo scroll verso il basso in automatico fino all'ultimo messaggio
-                        this.$nextTick(() => {
-                            const container = document.getElementById('main-chat');
-                            container.scrollTop = container.scrollHeight;
-                        });
-                    }, timeout);
+
+                    // Verifichiamo se il contatto attivo è Homer Simpson
+                    if (this.contacts[activeContactIndex].name === 'Homer Simpson') {
+                        // Array di risposte dedicate per Homer Simpson
+                        const homerResponses = [
+                            "Mmmm... Pizza!",
+                            "D'oh!",
+                            "Beh!",
+                            "La birra, la causa e la soluzione di tutti i problemi.",
+                            "Non ci credo, non ci credo... una macchina del tempo! E tutto questo tempo inutile che potevo passarlo al bar!",
+                            "Mamma mia! Questo è il peggior giorno della mia vita! E domani sarà un giorno ancora peggiore!",
+                            "Da un giorno all'altro non accade nulla. Ma accade tutto in una vita.",
+                            "Per la birra, il dono degli dei!",
+                            "Birra! La causa e la soluzione di tutti i problemi!",
+                            "La birra è la risposta a tutti i problemi, eccetto al problema della sete.",
+                            "Se non vedo, non è illegale!",
+                            "Odio il traffico... mi fa sembrare che non stia facendo niente!",
+                            "Oh mio Dio, cereali!",
+                            "Tutte queste persone che vogliono sapere cose da me... cosa sono, un dizionario?",
+                            "Io non so niente di nulla.",
+                            "A chi importa dell'etica? Lavoriamo per una grande impresa!",
+                            "Come si dice 'nonno' in italiano?",
+                            "Ecco cosa succede quando uno esce di casa, la gente diventa pazza.",
+                            "La soluzione a tutti i nostri problemi, una barzelletta buona!",
+                            "Stupido funzionario, paga le tasse! Oh, come lo odio!",
+                            "Cosa pensi che vuol dire? Questo che stiamo facendo adesso?",
+                            "La chiave per una buona vita è... non preoccuparsi mai di niente!",
+                            "Mai fare niente. Se hai troppo paura di fallire, non farai niente.",
+                            "Le persone più intelligenti sanno che non sanno nulla.",
+                            "Una cosa si può dire di qualsiasi cosa. La cosa difficile è dirne due su una cosa.",
+                            "Come faccio a mettere questa in chiave di giro?",
+                            "Io non sono una persona pignola, ma quando si tratta di ufficio, voglio essere il mio stesso superiore!",
+                            "Io non sono pigro, sto solo risparmiando energia.",
+                            "Non sto perdendo i capelli. Sto solo guadagnando più testa!",
+                            "Dare agli altri è la vera essenza dell'avere!",
+                            "Sei come un padre per me. Un padre ebete!",
+                            "Sono un uomo della strada, da una strada chiamata America.",
+                            "Non è facile organizzare i furti, sapete?",
+                            "Non sei tu che non hai senso dell'umorismo, sono gli altri che non sono divertenti!"
+                        ];
+
+                        // Se il contatto attivo è Homer Simpson, invia una risposta casuale dalle risposte dedicate per Homer Simpson
+                        const randomIndex = Math.floor(Math.random() * homerResponses.length);
+                        const homerResponse = homerResponses[randomIndex];
+                        const responseLength = homerResponse.length;
+                        const timeout = responseLength * 50;
+                        setTimeout(() => {
+                            const currentTime = DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
+                            this.contacts[activeContactIndex].messages.push({
+                                message: homerResponse,
+                                status: 'received',
+                                date: currentTime
+                            });
+                            newMessage.hasResponse = true;
+                            this.$nextTick(() => {
+                                const container = document.getElementById('main-chat');
+                                container.scrollTop = container.scrollHeight;
+                            });
+                        }, timeout);
+                    } else {
+            
+                        // definiamo una lista di frasi casuali
+                        const randomResponses = [
+                            "Che la forza sia con te!",
+                            "Francamente, me ne infischio.",
+                            "Il mio nome è Bond, James Bond",
+                            "Potrebbe andar peggio! Potrebbe... piovere!",
+                            "Mi piace l'odore del napalm al mattino",
+                            "Io ne ho viste cose che voi umani non potreste immaginarvi",
+                            "Metti la cera, togli la cera",
+                            "Strade? Dove stiamo andando non c'è bisogno di strade!",
+                            "Se io posso cambiare, e se voi potete cambiare, allora, tutto il mondo può cambiare!",
+                            "Sei solo chiacchiere e distintivo!",
+                            "Mamma diceva sempre: la vita è come a una scatola di cioccolatini, non sai mai quello che ti capita",
+                            "Non può piovere per sempre",
+                            "Chi dorme non piglia tempo, chi ha tempo non aspetti pesce",
+                            "“Prima regola del Fight Club: non parlate mai del Fight Club. Seconda regola del Fight Club: non dovete parlare mai del Fight Club",
+                            "Al mio segnale scatenate l'Inferno",
+                            "O muori da eroe o vivi tanto a lungo da diventare il cattivo",
+                            "Un milione di dollari non è fico. Sai cos'è fico? Un miliardo di dollari",
+                            "Non è colpa tua… sono io",
+                        ];
+            
+                        // selezioniamo casualmente una frase dalla lista
+                        const randomIndex = Math.floor(Math.random() * randomResponses.length);
+                        const randomResponse = randomResponses[randomIndex];
+            
+                        // calcola la lunghezza del messaggio di risposta
+                        const responseLength = randomResponse.length;
+            
+                        // calcola un ritardo basato sulla lunghezza del messaggio
+                        const timeout = responseLength * 50; // Ad esempio, 50 millisecondi per carattere
+            
+                        // aggiungiamo la risposta casuale dopo il ritardo calcolato
+                        setTimeout(() => {
+                            const currentTime = DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
+                            this.contacts[activeContactIndex].messages.push({
+                                message: randomResponse,
+                                status: 'received',
+                                date: currentTime
+                            });
+            
+                            // impostiamo "hasResponse" a true per il nuovo messaggio
+                            newMessage.hasResponse = true;
+            
+                            // eseguiamo lo scroll verso il basso in automatico fino all'ultimo messaggio
+                            this.$nextTick(() => {
+                                const container = document.getElementById('main-chat');
+                                container.scrollTop = container.scrollHeight;
+                            });
+                        }, timeout);
+                    }
                 }
             }
         },
