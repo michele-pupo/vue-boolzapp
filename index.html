@@ -90,11 +90,12 @@
                 <div id="user-chat-list" :class="theme">
                     <div id="user-container" :class="theme">
                         <div id="user" 
-                            :class="themeBorderTop"
                             v-for="(contact, index) in searchChat()" 
                             class="d-flex justify-content-between"
                             @click="clickSingleChat(index)"
-                            :class="[index == activeContact ? (themeActive === 'theme-light-active' ? 'theme-light-active' : 'theme-dark-active') : '']"
+                            :class="[index == activeContact ? 
+                                     (themeActive === 'theme-light-active' ? 'theme-light-active' : 'theme-dark-active') : '',
+                                     themeBorderTop]"
                         >
                             <div class="d-flex gap-3 align-items-center ms-4">
                                 <img class="rounded-5 mt-2" :src="contact.avatar" :alt="`avatar-user-${contact.name}`">

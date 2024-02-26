@@ -33,20 +33,20 @@ createApp({
 
         keyFiltered : '',
         activeContact: null,
-        themeBackground: 'theme-light-chat',
-        theme: 'theme-light',
-        themeMessageSent: 'theme-light-message-sent',
-        themeMessageReply: 'theme-light-message-reply',
-        themeText: 'theme-text-light',
-        themeActive: 'theme-light-active',
-        themeAnother: 'theme-light-another',
-        themeLabel:'theme-light-label',
-        themeNotifications:'theme-light-notifications',
-        themeBgBell:'theme-light-bg-bell',
-        themeTextBell:'theme-light-text-bell',
-        themeBorder:'theme-light-border',
-        themeBorderTop:'theme-light-border-top',
-        themeContainerBig:'theme-light-container-big',
+        themeBackground: 'theme-light-chat', //thema sfondo chat principale
+        theme: 'theme-light', //thema sfondo utenti
+        themeMessageSent: 'theme-light-message-sent', //thema sfondo messaggio inviato
+        themeMessageReply: 'theme-light-message-reply', //thema sfondo messaggio ricevuto
+        themeText: 'theme-text-light', //thema testo
+        themeActive: 'theme-light-active', //thema classe active utente
+        themeAnother: 'theme-light-another', //thema sfondo utente
+        themeLabel:'theme-light-label', //thema sfondo label
+        themeNotifications:'theme-light-notifications', //thema sfondo notifications
+        themeBgBell:'theme-light-bg-bell', //thema sfondo campana notifiche
+        themeTextBell:'theme-light-text-bell', //thema testo campana notifiche
+        themeBorder:'theme-light-border', //thema bordo desto utenti
+        themeBorderTop:'theme-light-border-top', //thema bordo superiore utenti
+        themeContainerBig:'theme-light-container-big', //thema sfondo container principale
 
           contacts: [
             {
@@ -285,6 +285,14 @@ createApp({
                             date: currentTime
                         });
 
+                        // dopo aver aggiunto la risposta casuale, sposta la chat attiva in cima alla lista dei contatti
+                        if (this.activeContact !== null) {
+                            const contact = this.contacts.splice(this.activeContact, 1)[0];
+                            // con il metodo "unshit" portiamo l'elemnto dell'array contatti come primo
+                            this.contacts.unshift(contact);
+                            this.activeContact = 0; 
+                        }
+
                         // esegue lo sroll verso il basso in automatico fino all'ultimo messaggio
                         this.$nextTick(() => {
                             const container = document.getElementById('main-chat');
@@ -347,8 +355,15 @@ createApp({
             }
         },
 
+        // funzione per calcolare la data e l'ora dell'ultimo messaggio inviato
+        lastMessageDate(contact) {
+            const lastMessage = contact.messages[contact.messages.length - 1];
+            return DateTime.fromFormat(lastMessage.date, 'dd/MM/yyyy HH:mm:ss');
+        },
+
+        // funzione che richiama le varie funzioni di cambio thema
         handleChangeTheme() {
-            this.changeThemeBackground(); // Chiamare il primo metodo
+            this.changeThemeBackground();
             this.changeTheme();
             this.changeThemeSent();
             this.changeThemeReply();
@@ -361,10 +376,10 @@ createApp({
             this.changeThemeTextBell();
             this.changeThemeBorder();
             this.changeThemeBorderTop();
-            this.changeThemeContainerBig();// Chiamare il secondo metodo
+            this.changeThemeContainerBig();
           },
 
-        // metodo per cambiare il tema di background
+        // metodo per cambiare il thema sfondo chat principale
         changeThemeBackground() {
             // verifichiamo il tema corrente e lo cambiamo in base ad esso
             if (this.themeBackground === 'theme-light-chat') {
@@ -374,7 +389,7 @@ createApp({
             }
         },
 
-        // metodo per cambiare il tema generale
+        // metodo per cambiare il thema sfondo utenti
         changeTheme() {
             // verifichiamo il tema corrente e lo cambiamo in base ad esso
             if (this.theme === 'theme-light') {
@@ -384,6 +399,7 @@ createApp({
             }
         },
 
+        // metodo per cambiare il thema sfondo messaggio inviato
         changeThemeSent(){
             // verifichiamo il tema corrente e lo cambiamo in base ad esso
             if (this.themeMessageSent === 'theme-light-message-sent') {
@@ -393,6 +409,7 @@ createApp({
             }
         },
 
+        // metodo per cambiare il thema sfondo messaggio ricevuto
         changeThemeReply(){
             // verifichiamo il tema corrente e lo cambiamo in base ad esso
             if (this.themeMessageReply === 'theme-light-message-reply') {
@@ -402,6 +419,7 @@ createApp({
             }
         },
 
+        // metodo per cambiare il thema testo
         changeThemeText(){
             // verifichiamo il tema corrente e lo cambiamo in base ad esso
             if (this.themeText === 'theme-text-light') {
@@ -410,7 +428,8 @@ createApp({
                 this.themeText = 'theme-text-light';
             }
         },
-
+        
+        // metodo per cambiare il thema classe active utente
         changeThemeActive(){
             // verifichiamo il tema corrente e lo cambiamo in base ad esso
             if (this.themeActive === 'theme-light-active') {
@@ -420,6 +439,7 @@ createApp({
             }
         },
 
+        // metodo per cambiare il thema sfondo notifications
         changethemeAnother(){
             // verifichiamo il tema corrente e lo cambiamo in base ad esso
             if (this.themeAnother === 'theme-light-another') {
@@ -428,7 +448,8 @@ createApp({
                 this.themeAnother = 'theme-light-another';
             }
         },
-
+        
+        // metodo per cambiare il thema sfondo label
         changeThemeLabel(){
             // verifichiamo il tema corrente e lo cambiamo in base ad esso
             if (this.themeLabel === 'theme-light-label') {
@@ -438,6 +459,7 @@ createApp({
             }
         },
 
+        // metodo per cambiare il thema sfondo notifications
         changeThemeNotifications(){
             // verifichiamo il tema corrente e lo cambiamo in base ad esso
             if (this.themeNotifications === 'theme-light-notifications') {
@@ -447,6 +469,7 @@ createApp({
             }
         },
 
+        // metodo per cambiare il thema sfondo campana notifiche
         changeThemeBgBell(){
             // verifichiamo il tema corrente e lo cambiamo in base ad esso
             if (this.themeBgBell === 'theme-light-bg-bell') {
@@ -456,6 +479,7 @@ createApp({
             }
         },
 
+        // metodo per cambiare il thema testo campana notifiche
         changeThemeTextBell(){
             // verifichiamo il tema corrente e lo cambiamo in base ad esso
             if (this.themeTextBell === 'theme-light-text-bell') {
@@ -465,6 +489,7 @@ createApp({
             }
         },
 
+        // metodo per cambiare il thema bordo desto utenti
         changeThemeBorder(){
             // verifichiamo il tema corrente e lo cambiamo in base ad esso
             if (this.themeBorder === 'theme-light-border') {
@@ -474,6 +499,7 @@ createApp({
             }
         },
 
+        // metodo per cambiare il thema bordo superiore utenti
         changeThemeBorderTop(){
             // verifichiamo il tema corrente e lo cambiamo in base ad esso
             if (this.themeBorderTop === 'theme-light-border-top') {
@@ -483,6 +509,7 @@ createApp({
             }
         },
 
+        // metodo per cambiare il thema sfondo container principale
         changeThemeContainerBig(){
             // verifichiamo il tema corrente e lo cambiamo in base ad esso
             if (this.themeContainerBig === 'theme-light-container-big') {
@@ -492,4 +519,13 @@ createApp({
             }
         }
     },
+
+    // usando la funzione per calcolare la data e l'ora dell'ultimo messaggio inviato, usiamo il metodo "sort" come criterio di riordinamento
+    mounted() {
+        this.contacts.sort((a, b) => {
+            const lastMessageDateA = this.lastMessageDate(a);
+            const lastMessageDateB = this.lastMessageDate(b);
+            return lastMessageDateB - lastMessageDateA;
+        });
+    }
 }).mount('#app');
