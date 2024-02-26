@@ -2,6 +2,19 @@
     height: 100vh;
 }
 
+#splash-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #009688;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
 #changeTheme{
     position: absolute;
     right: 250px;
@@ -167,7 +180,7 @@
 }
 
 #main-chat #user-message span{
-    right: 30px;
+    right: 35px;
 }
 
 #user-message{
@@ -335,6 +348,14 @@
 
 .theme-dark-container-big{
     background-color: #0d1216;
+}
+
+.theme-light-bg-emoji{
+    background-color: #e9ebeb;
+}
+
+.theme-dark-bg-emoji{
+    background-color: #1f2c34;
 }
 /* fine stilizzazione cambio tema */
 /* fine container che identifica la chat */

@@ -27,13 +27,18 @@
 
     <div id="app">
 
+        <!-- splash all'apertura della pagina -->
+        <div id="splash-page">
+            <img src="img/3670051.png" alt="whatsapp icon">
+        </div>
+        <!-- fine splash all'apertura della pagina -->
         <!-- bottone di cambio modalità da light a dark -->
         <button class="fs-5 border-0" 
                 id="changeTheme" 
                 @click="handleChangeTheme"
         >
                 <i class="fa-solid fa-circle-half-stroke"></i></button>
-        
+        <!-- fine bottone di cambio modalità da light a dark -->
         <!-- container verde in alto -->
         <div id="container-green"></div>
         <!-- container grigio di sfondo -->
@@ -49,9 +54,9 @@
                         <h4 class="fs-6 ms-2" :class="themeText">Miky</h4>
                     </div>
                     <div class="d-flex align-items-center gap-3 fs-5 me-4">
-                        <a href=""><i class="fa-solid fa-circle-notch"></i></a>
-                        <a href=""><i class="fa-solid fa-message"></i></a>
-                        <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                        <button class="border-0" :class="themeAnother"><i class="fa-solid fa-circle-notch"></i></button>
+                        <button class="border-0" :class="themeAnother"><i class="fa-solid fa-message"></i></button>
+                        <button class="border-0" :class="themeAnother"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                     </div>
                 </div>
                 <!-- fine sezione profilo proprio -->
@@ -132,8 +137,8 @@
                             </div>
                         </div>
                         <div id="icons-chat" class="d-flex align-items-center gap-3 fs-5 me-4">
-                            <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-                            <a href=""><i class="fa-solid fa-paperclip"></i></a>
+                            <button class="border-0" :class="themeAnother"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <button class="border-0" :class="themeAnother"><i class="fa-solid fa-paperclip"></i></button>
                             <!-- inizio dropdown menu -->
                             <div class="dropdown">
                                 <button class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -217,26 +222,26 @@
                         <button class="btn ms-5" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-regular fa-face-smile display-6"></i>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton">
-                            <div class="fs-3">
-                                <button class="border-0 bg-white"><span>&#128512;</span></button>
-                                <button class="border-0 bg-white"><span>&#128513;</span></button>
-                                <button class="border-0 bg-white"><span>&#128514;</span></button>
-                                <button class="border-0 bg-white"><span>&#128517;</span></button>
-                                <button class="border-0 bg-white"><span>&#128519;</span></button>
-                                <button class="border-0 bg-white"><span>&#128521;</span></button>
-                                <button class="border-0 bg-white"><span>&#128525;</span></button>
-                                <button class="border-0 bg-white"><span>&#128526;</span></button>
-                                <button class="border-0 bg-white"><span>&#128527;</span></button>
-                                <button class="border-0 bg-white"><span>&#128531;</span></button>
-                                <button class="border-0 bg-white"><span>&#128533;</span></button>
-                                <button class="border-0 bg-white"><span>&#128536;</span></button>
-                                <button class="border-0 bg-white"><span>&#128540;</span></button>
-                                <button class="border-0 bg-white"><span>&#128545;</span></button>
-                                <button class="border-0 bg-white"><span>&#128546;</span></button>
-                                <button class="border-0 bg-white"><span>&#128548;</span></button>
-                                <button class="border-0 bg-white"><span>&#128554;</span></button>
-                                <button class="border-0 bg-white"><span>&#128557;</span></button>
+                        <ul class="dropdown-menu dropdown-menu-start" :class="themeBgEmoji" aria-labelledby="dropdownMenuButton">
+                            <div class="fs-3 d-flex flex-wrap justify-content-between">
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128512;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128513;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128514;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128517;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128519;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128521;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128525;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128526;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128527;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128531;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128533;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128536;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128540;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128545;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128546;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128548;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128554;</span></button>
+                                <button class="border-0" :class="themeBgEmoji"><span>&#128557;</span></button>
                             </div>
                          </ul>
                     </div>

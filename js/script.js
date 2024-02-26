@@ -48,6 +48,7 @@ createApp({
         themeBorder:'theme-light-border', //thema bordo desto utenti
         themeBorderTop:'theme-light-border-top', //thema bordo superiore utenti
         themeContainerBig:'theme-light-container-big', //thema sfondo container principale
+        themeBgEmoji:'theme-light-bg-emoji', //thema sfondo delle emoji
 
           contacts: [
             {
@@ -407,6 +408,7 @@ createApp({
             this.changeThemeBorder();
             this.changeThemeBorderTop();
             this.changeThemeContainerBig();
+            this.changeThemeBgEmoji();
           },
 
         // metodo per cambiare il thema sfondo chat principale
@@ -547,7 +549,17 @@ createApp({
             } else {
                 this.themeContainerBig = 'theme-light-container-big';
             }
-        }
+        },
+
+        // metodo per cambiare il thema sfondo delle emoji
+        changeThemeBgEmoji(){
+            // verifichiamo il tema corrente e lo cambiamo in base ad esso
+            if (this.themeBgEmoji === 'theme-light-bg-emoji') {
+                this.themeBgEmoji = 'theme-dark-bg-emoji'; 
+            } else {
+                this.themeBgEmoji = 'theme-light-bg-emoji';
+            }
+        },
     },
 
     mounted() {
@@ -566,3 +578,9 @@ createApp({
         });
     }
 }).mount('#app');
+
+// nascondiamo la splash page dopo 2 secondi
+setTimeout(() => {
+    const splashPage = document.getElementById('splash-page');
+    splashPage.style.display = 'none';
+}, 2000);
