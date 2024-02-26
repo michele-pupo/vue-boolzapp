@@ -431,50 +431,37 @@ createApp({
                     // aggiungiamo il nuovo messaggio al contatto attivo
                     this.contacts[activeContactIndex].messages.push(newMessage);
         
-                    // Imposta hasResponse a false per il nuovo messaggio
+                    // impostiamo hasResponse a false per il nuovo messaggio
                     newMessage.hasResponse = false;
 
-                    // Verifichiamo se il contatto attivo è Homer Simpson
-                    if (this.contacts[activeContactIndex].name === 'Homer Simpson') {
+                    // verifichiamo se il contatto attivo è Homer
+                    if (this.contacts[activeContactIndex].name === 'Homer') {
                         // Array di risposte dedicate per Homer Simpson
                         const homerResponses = [
                             "Mmmm... Pizza!",
                             "D'oh!",
                             "Beh!",
                             "La birra, la causa e la soluzione di tutti i problemi.",
-                            "Non ci credo, non ci credo... una macchina del tempo! E tutto questo tempo inutile che potevo passarlo al bar!",
-                            "Mamma mia! Questo è il peggior giorno della mia vita! E domani sarà un giorno ancora peggiore!",
-                            "Da un giorno all'altro non accade nulla. Ma accade tutto in una vita.",
+                            "Simpson, Homer Simpson, il più grande uomo che la storia avrà.",
+                            "Tutti noi abbiamo bisogno di credere in qualcosa: io credo che tra un attimo mi farò una birra.",
+                            "D'accordo niente panico. Mi rifarò del denaro vendendo uno dei miei fegati. Posso sopravvivere con uno solo.",
                             "Per la birra, il dono degli dei!",
-                            "Birra! La causa e la soluzione di tutti i problemi!",
+                            "Le persone muoiono tutti i giorni. Potresti svegliarti domattina ed essere morto!",
                             "La birra è la risposta a tutti i problemi, eccetto al problema della sete.",
-                            "Se non vedo, non è illegale!",
-                            "Odio il traffico... mi fa sembrare che non stia facendo niente!",
+                            "Marge perché piangi? Non hai alcun dolore fisico... è l'unico tipo di dolore che un uomo può comprendere!",
+                            "Magari potessi andarci io in pensione, quello sarebbe supermitico!",
                             "Oh mio Dio, cereali!",
                             "Tutte queste persone che vogliono sapere cose da me... cosa sono, un dizionario?",
-                            "Io non so niente di nulla.",
-                            "A chi importa dell'etica? Lavoriamo per una grande impresa!",
-                            "Come si dice 'nonno' in italiano?",
-                            "Ecco cosa succede quando uno esce di casa, la gente diventa pazza.",
-                            "La soluzione a tutti i nostri problemi, una barzelletta buona!",
-                            "Stupido funzionario, paga le tasse! Oh, come lo odio!",
-                            "Cosa pensi che vuol dire? Questo che stiamo facendo adesso?",
-                            "La chiave per una buona vita è... non preoccuparsi mai di niente!",
-                            "Mai fare niente. Se hai troppo paura di fallire, non farai niente.",
-                            "Le persone più intelligenti sanno che non sanno nulla.",
-                            "Una cosa si può dire di qualsiasi cosa. La cosa difficile è dirne due su una cosa.",
-                            "Come faccio a mettere questa in chiave di giro?",
-                            "Io non sono una persona pignola, ma quando si tratta di ufficio, voglio essere il mio stesso superiore!",
-                            "Io non sono pigro, sto solo risparmiando energia.",
-                            "Non sto perdendo i capelli. Sto solo guadagnando più testa!",
-                            "Dare agli altri è la vera essenza dell'avere!",
-                            "Sei come un padre per me. Un padre ebete!",
-                            "Sono un uomo della strada, da una strada chiamata America.",
-                            "Non è facile organizzare i furti, sapete?",
-                            "Non sei tu che non hai senso dell'umorismo, sono gli altri che non sono divertenti!"
+                            "Lisa, i vampiri non esistono, come gli gnomi, i giganti e gli eschimesi.",
+                            "Abbiamo ammazzato il Signor Burns! Il Signor Burns sarà infuriato!",
+                            "Marge, non è che odio tua madre, solo che non sarò triste quando morirà.",
+                            "Spero di non aver causato un grave cervello al mio danno!",
+                            "Ragazzo, tu hai fatto del tuo meglio e hai fallito miseramente. La lezione è: mai tentare.",
+                            "Io sono convinto che i ragazzi siano il futuro... a meno che non li fermiamo subito!",
+                            "Non sono solitamente un uomo che prega, ma se sei lassù, per favore salvami, Superman."
                         ];
 
-                        // Se il contatto attivo è Homer Simpson, invia una risposta casuale dalle risposte dedicate per Homer Simpson
+                        // se il contatto attivo è Homer, invia una risposta casuale dalle risposte dedicate per Homer
                         const randomIndex = Math.floor(Math.random() * homerResponses.length);
                         const homerResponse = homerResponses[randomIndex];
                         const responseLength = homerResponse.length;
@@ -607,7 +594,7 @@ createApp({
             return DateTime.fromFormat(lastMessage.date, 'dd/MM/yyyy HH:mm:ss');
         },
 
-        // aggiunta della stellina per il messaggio
+        // funzione per la aggiunta della stellina al messaggio
         toggleMessageImportance(message) {
             message.isImportant = !message.isImportant;
         },
@@ -803,4 +790,4 @@ createApp({
 setTimeout(() => {
     const splashPage = document.getElementById('splash-page');
     splashPage.style.display = 'none';
-}, 2000);
+}, 1500);

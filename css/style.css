@@ -212,6 +212,12 @@
     min-width: 120px;
 }
 
+#reply-message i{
+    position: absolute;
+    bottom: 18px;
+    right: 10px;
+}
+
 #icons-chat{
     margin-left: 20px;
 }
