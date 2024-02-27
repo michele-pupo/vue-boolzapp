@@ -258,6 +258,27 @@
 }
 /* fine sezione di scrittura in chat */
 
+/* stilizzazione barra scorrimento */
+::-webkit-scrollbar {
+    width: 10px; /* Larghezza della barra di scorrimento */
+}
+
+/* colore dello sfondo della barra di scorrimento */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* colore del manico della barra di scorrimento */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* colore del manico della barra di scorrimento al passaggio del mouse */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+/* fine stilizzazione barra scorrimento */
+
 /* stilizzazione cambio tema */
 .theme-light-chat {
     color: black;
