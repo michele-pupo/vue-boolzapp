@@ -404,6 +404,14 @@ createApp({
             if (event.key === 'Enter') {
                 const messageInput = event.target.value.trim();
                 if (messageInput !== '') {
+
+                    // Spostiamo il contatto attivo in cima alla lista dei contatti
+                    const activeContact = this.activeContact;
+                    if (activeContact !== null) {
+                        const movedContact = this.contacts.splice(activeContact, 1)[0];
+                        this.contacts.unshift(movedContact);
+                        this.activeContact = 0; // Imposta il contatto attivo come il primo della lista
+                    }
         
                     // reimposta il valore del campo di input a una stringa vuota dopo l'invio del messaggio
                     event.target.value = '';
@@ -597,6 +605,15 @@ createApp({
         // funzione per la aggiunta della stellina al messaggio
         toggleMessageImportance(message) {
             message.isImportant = !message.isImportant;
+        },
+
+        // funzione per rendere le emoji attive
+        addEmojiToMessage(emoji) {
+            // ottenere l'input del messaggio
+            const messageInput = document.getElementById('messageInput');
+            
+            // aggiungere l'emoji all'input del messaggio
+            messageInput.value += emoji;
         },
 
         // funzione che richiama le varie funzioni di cambio thema
