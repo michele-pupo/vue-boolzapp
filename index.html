@@ -110,7 +110,8 @@
                                 </div>
                             </div>
                             <div class="d-flex align-items-end me-2">
-                                <h4>{{ formatLastMessageDateTime(contact.messages[contact.messages.length - 1].date) }}
+                                <h4 v-if="contact.messages.length > 0">{{ formatLastMessageDateTime(contact.messages[contact.messages.length - 1].date) }}</h4>
+                                <h4 v-else></h4>
                             </div>    
                         </div>
                     </div>
@@ -133,7 +134,8 @@
                             <img class="rounded-5 ms-3 me-3" :src="contacts[activeContact].avatar" :alt="`avatar-user-${contacts[activeContact].name}`">
                             <div id="user-text" class="flex-column">
                                 <h2 class="fs-6" :class="themeText">{{ contacts[activeContact].name }}</h2>
-                                <h6 class="fs-6">{{ getLastMessageDateTime(contacts[activeContact].messages) }}</h6>
+                                <h6 class="fs-6" v-if="contacts[activeContact].messages.length > 0">{{ getLastMessageDateTime(contacts[activeContact].messages) }}</h6>
+                                <h6 class="fs-6" v-else>Inizia conversazione</h6>
                             </div>
                         </div>
                         <div id="icons-chat" class="d-flex align-items-center gap-3 fs-5 me-4">
@@ -146,6 +148,7 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                                     <li><a class="dropdown-item" href="#" @click.prevent="deleteChat">Elimina chat</a></li>
+                                    <li><a class="dropdown-item" href="#" @click.prevent="clearChat">Svuota chat</a></li>
                                 </ul>
                             </div>
                             <!-- fine dropdown menu -->

@@ -331,7 +331,7 @@ createApp({
                     },
                     {
                         date: '10/08/2022 18:51:00',
-                        message: 'ci sei per un calceto stasera?',
+                        message: 'ci sei per un calcetto stasera?',
                         status: 'received',
                         hasResponse: false,
                         hasResponse: false
@@ -593,6 +593,13 @@ createApp({
             if (this.activeContact !== null) {
                 this.contacts.splice(this.activeContact, 1);
                 this.activeContact = null; // Deseleziona il contatto attivo
+            }
+        },
+
+        // funzione per svuotare la chat attiva
+        clearChat() {
+            if (this.activeContact !== null) {
+                this.contacts[this.activeContact].messages = [];
             }
         },
 
