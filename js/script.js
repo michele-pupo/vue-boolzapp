@@ -34,6 +34,7 @@ createApp({
         keyFiltered : '',
         activeContact: null,
         isTyping: false,
+        isDropdownOpen: false,
         themeBackground: 'theme-light-chat', //thema sfondo chat principale
         theme: 'theme-light', //thema sfondo utenti
         themeMessageSent: 'theme-light-message-sent', //thema sfondo messaggio inviato
@@ -599,7 +600,11 @@ createApp({
         // funzione per svuotare la chat attiva
         clearChat() {
             if (this.activeContact !== null) {
-                this.contacts[this.activeContact].messages = [];
+                // filtra i messaggi contrassegnati come importanti
+                const messagesToKeep = this.contacts[this.activeContact].messages.filter(message => message.isImportant);
+                
+                // assegna i messaggi filtrati al contatto attivo
+                this.contacts[this.activeContact].messages = messagesToKeep;
             }
         },
 
@@ -611,7 +616,23 @@ createApp({
 
         // funzione per la aggiunta della stellina al messaggio
         toggleMessageImportance(message) {
+            // contrassegna o rimuove il messaggio come importante
             message.isImportant = !message.isImportant;
+            
+            // controlla se la tendina è aperta
+            if (!this.isDropdownOpen) {
+                // se la tendina non è aperta, non c'è bisogno di aggiornare la sua visibilità
+                return;
+            }
+            
+            // aggiorna la visibilità della tendina in base al fatto che il messaggio sia contrassegnato come importante o meno
+            if (message.isImportant) {
+                // se il messaggio è contrassegnato come importante, nascondi la tendina
+                this.isDropdownOpen = false;
+            } else {
+                // se il messaggio non è contrassegnato come importante, mantieni visibile la tendina
+                this.isDropdownOpen = true;
+            }
         },
 
         // funzione per rendere le emoji attive

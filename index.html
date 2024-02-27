@@ -174,7 +174,9 @@
                                                 <i class="fa-solid fa-angle-down"></i>
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <li><a class="dropdown-item" href="#" @click="deleteMessage(messageIndex)">Cancella messaggio</a></li>
+                                                <!-- mostra "Cancella messaggio" solo se il messaggio non è contrassegnato come importante -->
+                                                <li v-if="!message.isImportant"><a class="dropdown-item" href="#" @click="deleteMessage(messageIndex)">Cancella messaggio</a></li>
+                                                <!-- mostra sempre "Contrassegna" -->
                                                 <li><a class="dropdown-item" href="#" @click="toggleMessageImportance(message)">Contrassegna</a></li>
                                             </ul>
                                         </div>
@@ -207,7 +209,9 @@
                                                 <i class="fa-solid fa-angle-down"></i>
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <li><a class="dropdown-item" href="#" @click="deleteMessage(messageIndex)">Cancella messaggio</a></li>
+                                                <!-- mostra "Cancella messaggio" solo se il messaggio non è contrassegnato come importante -->
+                                                <li v-if="!message.isImportant"><a class="dropdown-item" href="#" @click="deleteMessage(messageIndex)">Cancella messaggio</a></li>
+                                                <!-- mostra sempre "Contrassegna" -->
                                                 <li><a class="dropdown-item" href="#" @click="toggleMessageImportance(message)">Contrassegna</a></li>
                                             </ul>
                                         </div>
