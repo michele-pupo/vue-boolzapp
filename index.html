@@ -106,7 +106,7 @@
                                 <img class="rounded-5 mt-2" :src="contact.avatar" :alt="`avatar-user-${contact.name}`">
                                 <div id="user-text" class="flex-column">
                                     <h2 :class="themeText">{{ contact.name }}</h2>
-                                    <h3>Ultimo messaggio inviato</h3>
+                                    <h3 v-if="contact.messages.length > 0">{{ contact.messages[contact.messages.length - 1].message }}</h3>
                                 </div>
                             </div>
                             <div class="d-flex align-items-end me-2">
