@@ -411,203 +411,204 @@
 /* media query*/
 /* versione desktop */
 @media screen and (max-width: 1200px) {
-    #container-big-chat{
+    #container-big-chat {
         max-width: 80%;
     }
 
-    #container-contacts{
+    #container-contacts {
         width: 500px;
     }
 
-    #main-chat{
-        padding: 60px 100px 60px 100px;
+    #main-chat {
+        padding: 60px 100px;
     }
 
-    #main-chat #encrypted{
+    #main-chat #encrypted {
         font-size: 10px;
     }
 
-    #user-text h2{
+    #user-text h2 {
         font-size: 15px;
         text-wrap: nowrap;
     }
 
     #user-text h3, 
-    #user h4{
+    #user h4 {
         font-size: 10px;
     }
 
-    #search-chat label{
+    #search-chat label {
         font-size: 13px;
     }
 
     #notifications h3, 
-    #notifications h4 a{
+    #notifications h4 a {
         font-size: 10px;
     }
 }
 
-/* versione laptop */
+/* Laptop */
 @media screen and (max-width: 992px) {
-    #container-big-chat{
+    #container-big-chat {
         max-width: 80%;
     }
 
-    #container-contacts{
+    #container-contacts {
         width: 400px;
     }
 
-    #main-chat{
+    #main-chat {
         padding: 30px;
     }
 
-    #main-chat #encrypted{
+    #main-chat #encrypted {
         font-size: 10px;
     }
 
-    #main-chat #no-contact{
+    #main-chat #no-contact {
         font-size: 20px;
     }
 
-    #user-message h2
-    #reply-message h2{
+    #user-message h2,
+    #reply-message h2 {
         font-size: 18px;
     }
 
     #user-message span,
-    #reply-message span{
+    #reply-message span {
         font-size: 10px;
     }
 
-    #user-text h2{
+    #user-text h2 {
         font-size: 15px;
         text-wrap: nowrap;
     }
 
     #user-text h3, 
-    #user h4{
+    #user h4 {
         font-size: 8px;
     }
 
-    #user h4{
+    #user h4 {
         width: 80px;
         text-align: end;
     }
 
-    #search-chat label{
+    #search-chat label {
         font-size: 13px;
     }
 
     #notifications h3, 
-    #notifications h4 a{
+    #notifications h4 a {
         font-size: 10px;
     }
 
-    #input-chat label{
+    #input-chat label {
         font-size: 8px;
     }
 }
 
-/* versione tablet */
+/* Tablet */
 @media screen and (max-width: 768px) {
-    #container-big-chat{
+    #container-big-chat {
         max-width: 80%;
     }
 
-    #container-contacts{
+    #container-contacts {
         width: 310px;
     }
 
-    #main-chat{
-        padding: 30px 20px 30px 20px;
+    #main-chat {
+        padding: 30px 20px;
     }
 
-    #main-chat #no-contact{
+    #main-chat #no-contact {
         font-size: 15px;
     }
 
-    #user h4{
+    #user h4 {
         font-size: 7px;
         text-wrap: nowrap;
     }
 
-    #user-chat h6{
+    #user-chat h6 {
         display: none;
     }
 
-    #user-message h2
-    #reply-message h2{
+    #user-message h2,
+    #reply-message h2 {
         font-size: 13px;
     }
 
     #user-message span,
-    #reply-message span{
+    #reply-message span {
         font-size: 10px;
     }
 
-    #user #user-text h3{
+    #user #user-text h3 {
         display: none;
     }
 
-    #search-chat label{
+    #search-chat label {
         font-size: 10px;
     }
 
     #notifications h3, 
-    #notifications h4 a{
+    #notifications h4 a {
         font-size: 8px;
     }
 
-    #input-chat label{
+    #input-chat label {
         display: none;
     }
 }
 
-/* versione mobile */
-@media screen and (max-width: 576px){
-    #container-big-chat{
+/* Mobile */
+@media screen and (max-width: 576px) {
+    #container-big-chat {
         max-width: 80%;
     }
 
-    #container-contacts{
+    #container-contacts {
         width: 130px;
     }
 
-    #encrypted{
+    #encrypted {
         font-size: 80px;
     }
 
-    #user-profile button{
+    #user-profile button {
         display: none;
     }
 
-    #user-profile h4{
+    #user-profile h4 {
         display: block;
     }
 
-    #notifications h3, h4{
+    #notifications h3, 
+    #notifications h4 {
         display: none;
     }
 
     #user-text h2,
     #user-text h3, 
-    #user h4{
+    #user h4 {
         display: none;
     }
 
-    #user-chat h6{
+    #user-chat h6 {
         display: none;
     }
 
-    #user-chat h2{
+    #user-chat h2 {
         display: block;
     }
 
-    #search-chat label{
+    #search-chat label {
         display: none;
     }
 
-    #input-chat label{
+    #input-chat label {
         display: none;
     }
 }
