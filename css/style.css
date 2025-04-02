@@ -17,17 +17,20 @@
 }
 
 #changeTheme{
-    position: absolute;
-    right: 250px;
-    top: -5px;
+    position: fixed;
+    right: clamp(20px, 5vw, 250px);
+    top: 10px;
     background-color: #009688;
+    z-index: 5;
 }
 /* fine stilizzazione splash page */
 
 /* container verde in alto */
 #container-green{
-    height: 150px;
-    width: 100vw;
+    height: 15vh;
+    min-height: 100px;
+    max-height: 150px;
+    width: 100%;
     background-color: #009688;
 }
 /* fine container verde in alto */
@@ -35,24 +38,28 @@
 /* container grigio */
 #container-big-grey{
     position: absolute;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 15vh);
+    min-height: calc(100vh - 150px);
     width: 100%;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 /* fine container grigio */
 
 /* container principale con la chat */
 #container-big-chat{
-    height: calc(100vh - 50px);
-    max-width: 80%;
+    height: 90vh;
+    max-width: 95%;
+    width: 1400px;
     margin: 0 auto;
     position: relative;
-    top: -125px;
+    top: clamp(-100px, -12vh, -125px);
 }
 
 /* container con i contatti */
 #container-contacts{
-    width: 560px;
+    width: 35%;
+    min-width: 300px;
+    max-width: 560px;
     height: 100%;
     background-color: #ffffff;
 }
@@ -64,6 +71,8 @@
 
 #user-profile img{
     width: 50px;
+    height: 50px;
+    object-fit: cover;
 }
 
 #user-profile i, 
@@ -87,19 +96,24 @@
 #notifications .fa-bell-slash{
     height: 45px;
     width: 45px;
-    padding: 15px 48px 45px 15px;
+    padding: 15px 15px 15px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #notifications h3{
-    font-size: 15px;
+    font-size: clamp(10px, 1.5vw, 15px);
+    margin-bottom: 5px;
 }
 
 #notifications h4{
-    line-height: 0px;
+    line-height: normal;
+    margin: 0;
 }
 
 #notifications h4 a{
-    font-size: 13px;
+    font-size: clamp(8px, 1.2vw, 13px);
     color: #5d7495;
 }
 
@@ -109,11 +123,13 @@
 }
 
 #user-chat h6{
-    line-height: 0px;
+    line-height: 1;
+    margin: 5px 0;
+    font-size: clamp(8px, 1vw, 12px);
 }
 
 #user-chat-list{
-    height: calc(100vh - 250px);
+    height: calc(90vh - 200px);
     width: 100%;
     overflow-y: auto;
 }
@@ -127,21 +143,33 @@
 
 #user img{
     width: 60px;
+    height: 60px;
+    object-fit: cover;
 }
 
 #user-text h2{
-    font-size: 18px;
+    font-size: clamp(12px, 1.5vw, 18px);
     text-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    margin-bottom: 5px;
 }
 
 #user-text h3, 
 #user h4{
-    font-size: 13px;
+    font-size: clamp(8px, 1vw, 13px);
     color: #c7cacb;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+    margin: 0;
 }
 
 #user h4{
-    width: 110px;
+    width: clamp(50px, 8vw, 110px);
     text-align: end;
 }
 /* fine container con i contatti */
@@ -155,34 +183,43 @@
 #container-chat #no-contact{
     position: absolute;
     top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
 }
 
 #container-chat #encrypted{
     position: absolute;
     bottom: 80px;
+    width: 100%;
+    text-align: center;
+    font-size: clamp(10px, 1.2vw, 14px);
 }
 
 /* stilizzazione messaggio utente e risposta */
 #main-chat{
-    height: calc(100vh - 70px - 75px);
+    height: calc(90vh - 145px);
     width: 100%;
-    padding: 60px 100px 60px 100px;
+    padding: clamp(20px, 5vw, 60px);
     overflow-y: auto;
+    position: relative;
 }
 
 #main-chat #no-contact{
-    font-size: 30px;
+    font-size: clamp(18px, 3vw, 30px);
 }
 
 #main-chat h2{
-    font-size: 20px;
+    font-size: clamp(13px, 1.5vw, 20px);
+    margin: 0;
 }
 
 #main-chat span{
     position: absolute;
     bottom: 5px;
     right: 10px;
-    font-size: 13px;
+    font-size: clamp(8px, 0.9vw, 13px);
     color: #c7cacb;
 }
 
@@ -204,7 +241,8 @@
 
 #user-message{
     position: relative;
-    flex-grow: 1;
+    max-width: 80%;
+    min-width: 120px;
 }
 
 #user-message .fa-check-double{
@@ -213,7 +251,7 @@
 
 #reply-message{
     position: relative;
-    flex-grow: 1;
+    max-width: 80%;
     min-width: 120px;
 }
 
@@ -230,6 +268,7 @@
 .dropdown .btn{
     border: transparent;
     color: #c7cacb;
+    padding: 0.375rem 0.5rem;
 }
 
 .dropdown .btn:hover{
@@ -237,7 +276,7 @@
 }
 
 .dropdown-menu-start {
-    min-width: 350px;
+    min-width: clamp(200px, 30vw, 350px);
     max-height: 200px;
     overflow-y: auto;
 }
@@ -250,17 +289,27 @@
 
 #user-profile-chat img{
     width: 50px;
+    height: 50px;
+    object-fit: cover;
 }
 /* sezione di scrittura in chat */
 #input-chat{
     height: 75px;
     width: 100%; 
 }
+
+#input-chat .form-control {
+    height: 45px;
+}
+
+#input-chat .btn {
+    padding: 0.25rem 0.5rem;
+}
 /* fine sezione di scrittura in chat */
 
 /* stilizzazione barra scorrimento */
 ::-webkit-scrollbar {
-    width: 10px; /* Larghezza della barra di scorrimento */
+    width: 6px; /* Larghezza della barra di scorrimento */
 }
 
 /* colore dello sfondo della barra di scorrimento */
@@ -271,6 +320,7 @@
 /* colore del manico della barra di scorrimento */
 ::-webkit-scrollbar-thumb {
     background: #888; 
+    border-radius: 3px;
 }
 
 /* colore del manico della barra di scorrimento al passaggio del mouse */
@@ -283,11 +333,13 @@
 .theme-light-chat {
     color: black;
     background-image: url(../img/mine.jpg);
+    background-size: cover;
 }
 
 .theme-dark-chat {
     color: white;
     background-image: url(../img/Senza\ titolo.jpg);
+    background-size: cover;
 }
 
 .theme-light-message-sent{
@@ -404,211 +456,79 @@
     background-color: #1f2c34;
 }
 /* fine stilizzazione cambio tema */
-/* fine container che identifica la chat */
-/* fine container con la chat selezionata */
 
-
-/* media query*/
-/* versione desktop */
-@media screen and (max-width: 1200px) {
+/* Media query per schermi molto piccoli (meno di 480px) */
+@media screen and (max-width: 480px) {
     #container-big-chat {
-        max-width: 80%;
+        max-width: 98%;
+        top: -80px;
     }
-
+    
     #container-contacts {
-        width: 500px;
+        min-width: 100px;
+        width: 30%;
     }
-
+    
     #main-chat {
-        padding: 60px 100px;
+        padding: 15px;
     }
-
-    #main-chat #encrypted {
-        font-size: 10px;
+    
+    #notifications .fa-bell-slash {
+        margin: 0;
+        padding: 10px;
     }
-
-    #user-text h2 {
-        font-size: 15px;
-        text-wrap: nowrap;
+    
+    #user-profile img,
+    #user-profile-chat img {
+        width: 40px;
+        height: 40px;
     }
-
-    #user-text h3, 
-    #user h4 {
-        font-size: 10px;
+    
+    #user img {
+        width: 40px;
+        height: 40px;
     }
-
-    #search-chat label {
-        font-size: 13px;
+    
+    #user {
+        height: 60px;
     }
-
-    #notifications h3, 
-    #notifications h4 a {
-        font-size: 10px;
+    
+    #main-chat #user-message, 
+    #main-chat #reply-message {
+        max-width: 90%;
+    }
+    
+    #input-chat .fa-microphone,
+    #input-chat .fa-face-smile {
+        font-size: 1.5rem !important;
+    }
+    
+    .header-info h3 {
+        font-size: 0.9rem !important;
+    }
+    
+    #icons-chat {
+        margin-left: 5px;
+        gap: 0.5rem !important;
+    }
+    
+    #icons-chat i {
+        font-size: 0.9rem !important;
     }
 }
 
-/* Laptop */
-@media screen and (max-width: 992px) {
-    #container-big-chat {
-        max-width: 80%;
-    }
-
-    #container-contacts {
-        width: 400px;
-    }
-
-    #main-chat {
-        padding: 30px;
-    }
-
-    #main-chat #encrypted {
-        font-size: 10px;
-    }
-
-    #main-chat #no-contact {
-        font-size: 20px;
-    }
-
-    #user-message h2,
-    #reply-message h2 {
-        font-size: 18px;
-    }
-
-    #user-message span,
-    #reply-message span {
-        font-size: 10px;
-    }
-
-    #user-text h2 {
-        font-size: 15px;
-        text-wrap: nowrap;
-    }
-
-    #user-text h3, 
-    #user h4 {
-        font-size: 8px;
-    }
-
-    #user h4 {
-        width: 80px;
-        text-align: end;
-    }
-
-    #search-chat label {
-        font-size: 13px;
-    }
-
-    #notifications h3, 
-    #notifications h4 a {
-        font-size: 10px;
-    }
-
-    #input-chat label {
-        font-size: 8px;
-    }
-}
-
-/* Tablet */
-@media screen and (max-width: 768px) {
-    #container-big-chat {
-        max-width: 80%;
-    }
-
-    #container-contacts {
-        width: 310px;
-    }
-
-    #main-chat {
-        padding: 30px 20px;
-    }
-
-    #main-chat #no-contact {
-        font-size: 15px;
-    }
-
-    #user h4 {
-        font-size: 7px;
-        text-wrap: nowrap;
-    }
-
-    #user-chat h6 {
-        display: none;
-    }
-
-    #user-message h2,
-    #reply-message h2 {
-        font-size: 13px;
-    }
-
-    #user-message span,
-    #reply-message span {
-        font-size: 10px;
-    }
-
-    #user #user-text h3 {
-        display: none;
-    }
-
-    #search-chat label {
-        font-size: 10px;
-    }
-
-    #notifications h3, 
-    #notifications h4 a {
-        font-size: 8px;
-    }
-
-    #input-chat label {
-        display: none;
-    }
-}
-
-/* Mobile */
+/* Override Bootstrap per form controls e bottoni su schermi piccoli */
 @media screen and (max-width: 576px) {
-    #container-big-chat {
-        max-width: 80%;
+    .form-control {
+        font-size: 0.8rem;
     }
-
-    #container-contacts {
-        width: 130px;
+    
+    .btn {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.8rem;
     }
-
-    #encrypted {
-        font-size: 80px;
-    }
-
-    #user-profile button {
-        display: none;
-    }
-
-    #user-profile h4 {
-        display: block;
-    }
-
-    #notifications h3, 
-    #notifications h4 {
-        display: none;
-    }
-
-    #user-text h2,
-    #user-text h3, 
-    #user h4 {
-        display: none;
-    }
-
-    #user-chat h6 {
-        display: none;
-    }
-
-    #user-chat h2 {
-        display: block;
-    }
-
-    #search-chat label {
-        display: none;
-    }
-
-    #input-chat label {
-        display: none;
+    
+    .dropdown-menu {
+        font-size: 0.8rem;
     }
 }
